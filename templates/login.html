@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center"> Log in</h2>
+<div class="row g-0 form-block">
+    <div class="card col-10 offset-1">
+        <div class="card-body">
+            <form class="col-12 row justify-content-center g-0 form" method="POST" action="{{ url_for('login') }}">
+                <div class="col-lg-6 col-sm-12">
+                    <!--Username-->
+                    <div>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control validate" id="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                    </div>
+
+                    <!--Password-->
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control validate" id="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                    </div>
+                    <button type="submit" class="btn submit-btn">Login</button>
+                </div>
+            </form>
+
+            <!--Call to action registration link-->
+            <div class="row g-0">
+                <div class="col-12">
+                    <p class="text-center">
+                        New Here?
+                        <a href="{{ url_for('register') }}" class="center">Register Account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
