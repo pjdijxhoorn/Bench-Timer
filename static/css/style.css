@@ -1,3 +1,17 @@
 body {
     background-color: whitesmoke;
 }
+
+
+/*  basic styles*/
+
+.text-center {
+    text-align: center;
+}
+
+
+/*----------Colours*/
+
+.item__active {
+    color: green;
+}
