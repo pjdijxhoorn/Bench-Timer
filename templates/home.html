@@ -3,10 +3,16 @@
 
 <h2 class="text-center">Home</h2>
 
-<p>test</p>
-{% for user in users %}
-<p>{{ user.username }}</p>
+<div class="card col-10 offset-1">
+    <p class="main-explanation p-3">
+        Welcome to this site. This site is meant for coaches and managers of sport teams.
+        To be able to time all the players bench and field times simultaneous.
+        To be able to use the functionality of this site you have to register/ log-in.
+        This is a free to use website.
+    </p>
+    <a href="{{ url_for('login') }}" class="btn m-3">Log in here</a>
+    <a href="{{ url_for('register') }}" class="btn m-3">Register Account</a>
+</div>
 
 
-{% endfor %}
 {% endblock %}

@@ -11,6 +11,9 @@ body {
     text-align: center;
 }
 
+.bold {
+    font-weight: bold;
+}
 
 /*----------Colours*/
 
@@ -26,16 +29,31 @@ body {
 }
 
 .item__active {
-    color: green;
+    color: rgb(0, 94, 0);
 }
 
+.btn {
+    border: #000 2px solid;
+    color: rgb(0, 94, 0);
+    background: white;
+}
+
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    background: rgb(0, 94, 0);
+    border: #000 2px solid;
+    color: white;
+}
 
 /*----------footer*/
 
 footer {
     height: 50px;
-    background-color: red;
+    background-color: rgb(0, 94, 0);
     border-top: 2px solid black;
+    color: white;
     width: 100%;
     bottom: 0px;
     margin-top: 60px;
