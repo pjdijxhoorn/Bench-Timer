@@ -1,9 +1,12 @@
+:root {
+    --clr: white;
+}
+
 body {
-    background-color: whitesmoke;
+    background: var(--clr);
     height: 100%;
     min-height: 100vh;
 }
-
 
 /*  basic styles*/
 
@@ -53,7 +56,17 @@ body {
     color: white;
 }
 
-.navigation {}
+.navigation {
+    width: 100%;
+    height: 75px;
+    background: rgb(0, 94, 0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
 .navigation ul {
     list-style: none;
@@ -66,7 +79,7 @@ body {
 .navigation ul li {
     position: relative;
     list-style-type: none;
-    height: 70px;
+    height: 75px;
     width: 25%;
 }
 
@@ -81,6 +94,57 @@ body {
     text-decoration: none;
     color: black;
 
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.navigation ul li:hover a .icon {
+    transform: translateY(35px);
+    background: white;
+    top: 50%;
+    color: black;
+    background: radial-gradient(circle at 25px 25px, white, grey);
+    border: 6px solid var(--clr);
+    transition: 0.5s;
+
+}
+
+.navigation ul li a .text {
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.25s;
+    opacity: 0;
+    transform: translateY(-25px);
+}
+
+.navigation ul li:hover a .text {
+    opacity: 1;
+    transform: translateY(-15px);
+
+}
+
+.active {
+    background: rebeccapurple;
+}
+
+
+/*----------flash message box*/
+.flash-box {
+    margin-top: 30px;
 }
 
 /*----------forms*/

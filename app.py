@@ -92,9 +92,9 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/timer")
-def timer():
-    return render_template("timer.html")
+@app.route("/stopwatch")
+def stopwatch():
+    return render_template("stopwatch.html")
 
 @app.route("/team")
 def team():

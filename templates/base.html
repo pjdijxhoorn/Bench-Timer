@@ -53,18 +53,19 @@
     </div>
     {% endif %}
     </div>
+    {% if session.user %}
     <div class="navigation">
-        <ul class="">
-            <li>
-                <a href="{{ url_for('timer') }}">
+        <ul>
+            <li class="list" id="timer">
+                <a href="{{ url_for('stopwatch') }}">
 
-                    <span class="text">Timer</span>
+                    <span class="text">Stopwatch</span>
                     <span class="icon">
                         <ion-icon name="timer-outline"></ion-icon>
                     </span>
                 </a>
             </li>
-            <li>
+            <li class="list" id="team">
                 <a href="{{ url_for('team') }}">
 
                     <span class="text">Team</span>
@@ -73,7 +74,7 @@
                     </span>
                 </a>
             </li>
-            <li>
+            <li class="list" id="results">
                 <a href="{{ url_for('results') }}">
 
                     <span class="text">Results</span>
@@ -82,22 +83,22 @@
                     </span>
                 </a>
             </li>
-            <li>
+            <li class="list" id="settings">
                 <a href="{{ url_for('settings') }}">
 
-                    <span class="text">settings</span>
+                    <span class="text">Settings</span>
                     <span class="icon">
                         <ion-icon name="settings-outline"></ion-icon>
                     </span>
                 </a>
             </li>
-
+            <div class="indicator"></div>
         </ul>
 
     </div>
-
+    {% endif %}
     <!-- flash messages -->
-    <section>
+    <section class="flash-box">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -112,6 +113,26 @@
     <!--- content block --->
     {% block content %}
     {% endblock %}
+
+    <script>
+        if (document.URL.includes("stopwatch")) {
+            let timer = document.getElementById("timer")
+            timer.classList.add("active");
+        }
+        if (document.URL.includes("team")) {
+            let timer = document.getElementById("team")
+            timer.classList.add("active");
+        }
+        if (document.URL.includes("results")) {
+            let timer = document.getElementById("results")
+            timer.classList.add("active");
+        }
+        if (document.URL.includes("settings")) {
+            let timer = document.getElementById("settings")
+            timer.classList.add("active");
+        }
+    </script>
+
 
     <!--- footer --->
     <footer class="col-12 row g-0 justify-content-center mt-3">
