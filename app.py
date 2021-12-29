@@ -79,7 +79,7 @@ def login():
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(
                         request.form.get("username")))
-                    
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -92,7 +92,28 @@ def login():
 
     return render_template("login.html")
 
+@app.route("/timer")
+def timer():
+    return render_template("timer.html")
 
+@app.route("/team")
+def team():
+    return render_template("team.html")
+
+@app.route("/results")
+def results():
+    return render_template("results.html")
+
+@app.route("/settings")
+def settings():
+    return render_template("settings.html")
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

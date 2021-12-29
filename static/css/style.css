@@ -16,8 +16,72 @@ body {
 }
 
 /*----------Colours*/
+.text-black {
+    color: black;
+}
+
+/*----------nav-bar*/
 
 
+.home-bar {
+    background: rgb(0, 94, 0);
+    color: white;
+    margin-bottom: 0px;
+    height: 60px;
+    z-index: 1;
+}
+
+.home-bar a {
+    text-decoration: none;
+    color: white;
+}
+
+.login {
+    position: relative;
+    height: 60px;
+}
+
+.login a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.navigation {}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    z-index: 1;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style-type: none;
+    height: 70px;
+    width: 25%;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+
+}
 
 /*----------forms*/
 .form-block {
