@@ -75,10 +75,11 @@ def login():
         if existing_user:
             # does password match user input
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
+                                existing_user["password"],
+                                request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
 
             else:
                 # invalid password match
@@ -92,17 +93,49 @@ def login():
 
     return render_template("login.html")
 
+
 @app.route("/stopwatch")
 def stopwatch():
     return render_template("stopwatch.html")
 
+
 @app.route("/team")
 def team():
+    if request.method == "POST":
+        # gets all the info from the form and creates a team
+        newteam = {
+            "teamName": request.form.get("player1"),
+            "player1": request.form.get("player1"),
+            "player2": request.form.get("player2"),
+            "player3": request.form.get("player3"),
+            "player4": request.form.get("player4"),
+            "player5": request.form.get("player5"),
+            "player6": request.form.get("player6"),
+            "player7": request.form.get("player7"),
+            "player8": request.form.get("player8"),
+            "player9": request.form.get("player9"),
+            "player10": request.form.get("player10"),
+            "player11": request.form.get("player11"),
+            "player12": request.form.get("player12"),
+            "player13": request.form.get("player13"),
+            "player14": request.form.get("player14"),
+            "player15": request.form.get("player15"),
+            "player16": request.form.get("player16"),
+            "created_by": session["user"]
+        }
+
+        # inserts the recipe
+        mongo.db.teams.insert_one(newteam)
+        flash("team Successfully Added")
+        return redirect(url_for("team"))
+
     return render_template("team.html")
+
 
 @app.route("/results")
 def results():
     return render_template("results.html")
+
 
 @app.route("/settings")
 def settings():

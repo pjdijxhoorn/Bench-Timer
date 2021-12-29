@@ -1,6 +1,6 @@
 let username = document.getElementById("username")
 let password = document.getElementById("password")
-let confirm = document.getElementById("passwordconfirm")
+let confirm = document.getElementById("passwordConfirm")
 
 let char_5 = document.getElementById('char_5')
 let number = document.getElementById('number')
