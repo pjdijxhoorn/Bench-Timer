@@ -99,7 +99,7 @@ def stopwatch():
     return render_template("stopwatch.html")
 
 
-@app.route("/team")
+@app.route("/team", methods=["GET", "POST"])
 def team():
     if request.method == "POST":
         # gets all the info from the form and creates a team
@@ -124,12 +124,15 @@ def team():
             "created_by": session["user"]
         }
 
-        # inserts the recipe
+        # inserts the team
         mongo.db.teams.insert_one(newteam)
         flash("team Successfully Added")
         return redirect(url_for("team"))
 
-    return render_template("team.html")
+    userTeam = mongo.db.teams.find(
+        {"created_by": session["user"]})
+
+    return render_template("team.html", userTeam=userTeam)
 
 
 @app.route("/results")

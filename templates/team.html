@@ -1,7 +1,13 @@
 {% extends "base.html"%}
 {% block content %}
 
-<h2 class="text-center text-black">Team</h2>
+<h2 class="text-center text-black">Teams</h2>
+
+{% for team in userTeam %}
+<h2>{{team.teamName}}</h2>
+<h2>{{team.player2}}</h2>
+<p>test</p>
+{% endfor %}
 
 <div class="row g-0 form-block">
     <div class="card col-10 offset-1">
