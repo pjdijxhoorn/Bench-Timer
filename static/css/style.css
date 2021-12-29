@@ -109,38 +109,32 @@ body {
     border-radius: 50%;
 }
 
-.navigation ul li:hover a .icon {
+.navigation ul .active a .icon {
     transform: translateY(35px);
     background: white;
     top: 50%;
     color: black;
     background: radial-gradient(circle at 25px 25px, white, grey);
     border: 6px solid var(--clr);
-    transition: 0.5s;
-
+    transition: 0.4s;
 }
 
 .navigation ul li a .text {
     position: absolute;
     color: var(--clr);
-    font-weight: 400;
-    font-size: 0.75em;
+    font-weight: 600;
+    font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.25s;
     opacity: 0;
     transform: translateY(-25px);
 }
 
-.navigation ul li:hover a .text {
+.navigation ul .active a .text {
     opacity: 1;
     transform: translateY(-15px);
 
 }
-
-.active {
-    background: rebeccapurple;
-}
-
 
 /*----------flash message box*/
 .flash-box {

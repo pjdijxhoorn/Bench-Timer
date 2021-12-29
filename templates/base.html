@@ -115,22 +115,7 @@
     {% endblock %}
 
     <script>
-        if (document.URL.includes("stopwatch")) {
-            let timer = document.getElementById("timer")
-            timer.classList.add("active");
-        }
-        if (document.URL.includes("team")) {
-            let timer = document.getElementById("team")
-            timer.classList.add("active");
-        }
-        if (document.URL.includes("results")) {
-            let timer = document.getElementById("results")
-            timer.classList.add("active");
-        }
-        if (document.URL.includes("settings")) {
-            let timer = document.getElementById("settings")
-            timer.classList.add("active");
-        }
+
     </script>
 
 
@@ -142,6 +127,7 @@
     <!--- js loaded at end --->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/static/js/navbar.js"></script>
 </body>
 
 </html>
