@@ -104,7 +104,7 @@ def team():
     if request.method == "POST":
         # gets all the info from the form and creates a team
         newteam = {
-            "teamName": request.form.get("player1"),
+            "teamName": request.form.get("teamName"),
             "player1": request.form.get("player1"),
             "player2": request.form.get("player2"),
             "player3": request.form.get("player3"),
@@ -133,6 +133,14 @@ def team():
         {"created_by": session["user"]})
 
     return render_template("team.html", userTeam=userTeam)
+
+
+@app.route("/delete/<team_id>", methods=["GET", "POST"])
+def deleteTeam(team_id):
+    # deletes team
+    mongo.db.teams.remove({"_id": ObjectId(team_id)})
+    flash("Team successfully deleted")
+    return redirect(url_for('team', username=session['user']))
 
 
 @app.route("/results")

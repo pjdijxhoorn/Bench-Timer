@@ -141,7 +141,7 @@ body {
     margin-top: 30px;
 }
 
-/*----------forms*/
+/*---------- forms*/
 .form-block {
     margin-bottom: 30px;
 }
@@ -167,6 +167,16 @@ body {
     background: rgb(0, 94, 0);
     border: #000 2px solid;
     color: white;
+}
+
+/*----------accordion team page*/
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
 /*----------footer*/
