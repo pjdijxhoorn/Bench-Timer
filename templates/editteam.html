@@ -1,0 +1,92 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="row g-0 form-block">
+    <div class="card col-10 offset-1">
+        <div class="card-body">
+            <form class="col-12 row justify-content-center g-0 form" method="POST" action="{{ url_for('editteam', team_id=team._id) }}">
+                <div class="col-lg-6 col-sm-12">
+                    <!--teamname-->
+                    <div>
+                        <label for="teamName" class="form-label">Team</label>
+                        <input type="text" name="teamName" class="form-control validate" id="teamName" value="{{team.teamName}}" required>
+                    </div>
+                    <!--playersnames-->
+                    <div>
+                        <label for="player1" class="form-label">Player 1</label>
+                        <input type="text" name="player1" class="form-control validate" id="player1" placeholder="Player 1" value="{{team.player1}}" required>
+                    </div>
+                    <div>
+                        <label for="player2" class="form-label">Player 2</label>
+                        <input type="text" name="player2" class="form-control validate" id="player2" placeholder="Player 2" value="{{team.player2}}">
+                    </div>
+                    <div>
+                        <label for="player3" class="form-label">Player 3</label>
+                        <input type="text" name="player3" class="form-control validate" id="player3" placeholder="Player 3" value="{{team.player3}}">
+                    </div>
+                    <div>
+                        <label for="player4" class="form-label">Player 4</label>
+                        <input type="text" name="player4" class="form-control validate" id="player4" placeholder="Player 4" value="{{team.player4}}">
+                    </div>
+                    <div>
+                        <label for="player5" class="form-label">Player 5</label>
+                        <input type="text" name="player5" class="form-control validate" id="player5" placeholder="Player 5" value="{{team.player5}}">
+                    </div>
+                    <div>
+                        <label for="player6" class="form-label">Player 6</label>
+                        <input type="text" name="player6" class="form-control validate" id="player6" placeholder="Player 6" value="{{team.player6}}">
+                    </div>
+                    <div>
+                        <label for="player7" class="form-label">Player 7</label>
+                        <input type="text" name="player7" class="form-control validate" id="player7" placeholder="Player 7" value="{{team.player7}}">
+                    </div>
+                    <div>
+                        <label for="player8" class="form-label">Player 8</label>
+                        <input type="text" name="player8" class="form-control validate" id="player8" placeholder="Player 8" value="{{team.player8}}">
+                    </div>
+                    <div>
+                        <label for="player9" class="form-label">Player 9</label>
+                        <input type="text" name="player9" class="form-control validate" id="player9" placeholder="Player 9" value="{{team.player9}}">
+                    </div>
+                    <div>
+                        <label for="player10" class="form-label">Player 10</label>
+                        <input type="text" name="player10" class="form-control validate" id="player10" placeholder="Player 10" value="{{team.player10}}">
+                    </div>
+                    <div>
+                        <label for="player11" class="form-label">Player 11</label>
+                        <input type="text" name="player11" class="form-control validate" id="player11" placeholder="Player 11" value="{{team.player11}}">
+                    </div>
+                    <div>
+                        <label for="player12" class="form-label">Player 12</label>
+                        <input type="text" name="player12" class="form-control validate" id="player12" placeholder="Player 12" value="{{team.player12}}">
+                    </div>
+                    <div>
+                        <label for="player13" class="form-label">Player 13</label>
+                        <input type="text" name="player13" class="form-control validate" id="player13" placeholder="Player 13" value="{{team.player13}}">
+                    </div>
+                    <div>
+                        <label for="player14" class="form-label">Player 14</label>
+                        <input type="text" name="player14" class="form-control validate" id="player14" placeholder="Player 14" value="{{team.player14}}">
+                    </div>
+                    <div>
+                        <label for="player15" class="form-label">Player 15</label>
+                        <input type="text" name="player15" class="form-control validate" id="player15" placeholder="Player 15" value="{{team.player15}}">
+                    </div>
+                    <div>
+                        <label for="player16" class="form-label">Player 16</label>
+                        <input type="text" name="player16" class="form-control validate" id="player16" placeholder="Player 16" value="{{team.player16}}">
+                    </div>
+
+
+                    <br>
+                    <button type="submit" class="btn submit-btn bold">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

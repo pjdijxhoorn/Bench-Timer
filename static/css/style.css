@@ -171,6 +171,21 @@ body {
 
 /*----------accordion team page*/
 
+.accord-ion-block {
+    background: #eee;
+    border: 2px solid black;
+}
+
+.accord-ion-item:hover {
+    background: rgb(0, 94, 0);
+    color: white;
+
+}
+
+.accord-ion {
+    cursor: pointer;
+}
+
 .panel {
     padding: 0 18px;
     background-color: white;

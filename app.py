@@ -135,11 +135,44 @@ def team():
     return render_template("team.html", userTeam=userTeam)
 
 
-@app.route("/delete/<team_id>", methods=["GET", "POST"])
+@app.route("/editteam/<team_id>", methods=["GET", "POST"])
+def editteam(team_id):
+    if request.method == "POST":
+        # gets a recipe and takes all info /changes from the form and saves it
+        editedteam = {
+            "teamName": request.form.get("teamName"),
+            "player1": request.form.get("player1"),
+            "player2": request.form.get("player2"),
+            "player3": request.form.get("player3"),
+            "player4": request.form.get("player4"),
+            "player5": request.form.get("player5"),
+            "player6": request.form.get("player6"),
+            "player7": request.form.get("player7"),
+            "player8": request.form.get("player8"),
+            "player9": request.form.get("player9"),
+            "player10": request.form.get("player10"),
+            "player11": request.form.get("player11"),
+            "player12": request.form.get("player12"),
+            "player13": request.form.get("player13"),
+            "player14": request.form.get("player14"),
+            "player15": request.form.get("player15"),
+            "player16": request.form.get("player16"),
+            "created_by": session["user"]
+        }
+        mongo.db.teams.update({"_id": ObjectId(team_id)}, editedteam)
+        flash("Team Successfully edited")
+        return redirect(url_for('team', username=session['user']))
+
+    team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
+    return render_template(
+        "editteam.html", team=team)
+
+
+@app.route("/deleteTeam/<team_id>", methods=["GET", "POST"])
 def deleteTeam(team_id):
-    # deletes team
+    # deletes recipe
     mongo.db.teams.remove({"_id": ObjectId(team_id)})
-    flash("Team successfully deleted")
+    flash("team succesfully deleted")
     return redirect(url_for('team', username=session['user']))
 
 
