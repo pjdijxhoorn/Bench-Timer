@@ -1,9 +1,193 @@
 {% extends "base.html"%}
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/stopwatches.css')}}" type="text/css" />
+
 
 <h2 class="text-center text-black">Stopwatch</h2>
 
+<div class="col-md-6">
+    <label for="category_name" class="form-label">Which team would you want to time</label>
+    <select id="category_name" name="category_name" class="form-select" required>
+        <option value="" disabled selected>Choose the team</option>
+        {% for team in userTeam %}
+        <option value="{{ team.teamName }}">{{ team.teamName }}</option>
+        {% endfor %}
+    </select>
+</div>
+<br>
 
+<div class="watch col-12">
+    <table id="timerTable">
+        <thead>
+            <tr>
+                <th>Players:</th>
+                <th>Bench Time</th>
+                <th> Switch</th>
+                <th> Field Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="name">Player 1</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 2</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 3</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 4</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 5</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 6</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 7</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 8</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 9</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 10</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 11</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 12</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 13</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 14</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 15</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
+            <tr>
+                <td class="name">Player 16</td>
+                <td><span class="basic stopwatch"></span> </td>
+                <td><label class="switch">
+                        <input type="checkbox" class="toggleswitch" checked>
+                        <span class="slider"></span>
+                    </label> </td>
+                <td> <span class="basic stopwatch"></span> </td>
+            </tr>
 
+        </tbody>
+    </table>
+</div>
+<div class="btngroup sticky-bottom">
+    <button id="start" class="b-button-area">
+        Start <i class="fas fa-play"></i></button>
+    <button id="stop" class="b-button-area" onclick="stopBtn()">
+        Stop <i class="fas fa-stop"></i></button>
+    <span id="mainStopwatch" class="basic stopwatch main"></span>
+    <button id="reset" class="b-button-area" onclick="resetBtn()">
+        Reset <i class="fas fa-undo"></i></button>
+</div>
+</div>
+<br>
+<div class="col-12"> <button class="b-button-area">Store Results</button></div>
+
+<script src="/static/js/stopwatches.js"></script>
 
 {% endblock %}

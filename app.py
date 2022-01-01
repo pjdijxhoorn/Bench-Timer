@@ -96,7 +96,10 @@ def login():
 
 @app.route("/stopwatch")
 def stopwatch():
-    return render_template("stopwatch.html")
+
+    userTeam = mongo.db.teams.find(
+        {"created_by": session["user"]})
+    return render_template("stopwatch.html", userTeam=userTeam)
 
 
 @app.route("/team", methods=["GET", "POST"])
