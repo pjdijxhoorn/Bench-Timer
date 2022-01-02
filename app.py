@@ -94,12 +94,32 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/stopwatch")
+@app.route("/stopwatch", methods=["GET", "POST"])
 def stopwatch():
-
     userTeam = mongo.db.teams.find(
         {"created_by": session["user"]})
     return render_template("stopwatch.html", userTeam=userTeam)
+
+
+@app.route("/stopwatchClock/<team_id>", methods=["GET", "POST"])
+def stopwatchClock(team_id):
+    userTeam = mongo.db.teams.find(
+        {"created_by": session["user"]})
+
+    if request.method == "POST":
+        result = {
+            "created_by": session["user"],
+            "fieldTime_1": request.form.get("timer_2"),
+            "player1": request.form.get("player1")
+        }
+
+        mongo.db.results.insert(result)
+        flash("The results are stored")
+    team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
+    return render_template(
+                            "stopwatchClock.html",
+                            userTeam=userTeam,
+                            team=team)
 
 
 @app.route("/team", methods=["GET", "POST"])

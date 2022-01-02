@@ -23,78 +23,80 @@
 </head>
 
 <body>
-    <div class="home-bar row g-0">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <a href="{{ url_for('home') }}">
-                <h1 class="text-center logo">Bench-Timer</h1>
-            </a>
+    <div class="navigation-bar sticky-top">
+        <div class="home-bar row g-0">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <a href="{{ url_for('home') }}">
+                    <h1 class="text-center logo">Bench-Timer</h1>
+                </a>
+            </div>
+            {% if session.user %}
+            <div class="col-2  text-end login">
+                <a href="{{ url_for('logout') }}">
+
+                    <span class="text">Log out</span>
+                    <span class="icon">
+                        <ion-icon name="log-in-outline"></ion-icon>
+                    </span>
+                </a>
+            </div>
+            {% else %}
+            <div class="col-2 text-end login">
+                <a href="{{ url_for('login') }}">
+
+                    <span class="text">Login</span>
+                    <span class="icon">
+                        <ion-icon name="log-in-outline"></ion-icon>
+                    </span>
+                </a>
+            </div>
+            {% endif %}
         </div>
+
+
         {% if session.user %}
-        <div class="col-2  text-end login">
-            <a href="{{ url_for('logout') }}">
+        <div class="navigation">
+            <ul>
+                <li class="list" id="timer">
+                    <a href="{{ url_for('stopwatch') }}">
 
-                <span class="text">Log out</span>
-                <span class="icon">
-                    <ion-icon name="log-in-outline"></ion-icon>
-                </span>
-            </a>
+                        <span class="text">Stopwatch</span>
+                        <span class="icon">
+                            <ion-icon name="stopwatch-outline"></ion-icon>
+                        </span>
+                    </a>
+                </li>
+                <li class="list" id="team">
+                    <a href="{{ url_for('team') }}">
+
+                        <span class="text">Teams</span>
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                    </a>
+                </li>
+                <li class="list" id="results">
+                    <a href="{{ url_for('results') }}">
+
+                        <span class="text">Results</span>
+                        <span class="icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </span>
+                    </a>
+                </li>
+                <li class="list" id="settings">
+                    <a href="{{ url_for('settings') }}">
+
+                        <span class="text">Settings</span>
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
         </div>
-        {% else %}
-        <div class="col-2 text-end login">
-            <a href="{{ url_for('login') }}">
-
-                <span class="text">Login</span>
-                <span class="icon">
-                    <ion-icon name="log-in-outline"></ion-icon>
-                </span>
-            </a>
-        </div>
-    </div>
-    {% endif %}
-    </div>
-    {% if session.user %}
-    <div class="navigation">
-        <ul>
-            <li class="list" id="timer">
-                <a href="{{ url_for('stopwatch') }}">
-
-                    <span class="text">Stopwatch</span>
-                    <span class="icon">
-                        <ion-icon name="stopwatch-outline"></ion-icon>
-                    </span>
-                </a>
-            </li>
-            <li class="list" id="team">
-                <a href="{{ url_for('team') }}">
-
-                    <span class="text">Teams</span>
-                    <span class="icon">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </span>
-                </a>
-            </li>
-            <li class="list" id="results">
-                <a href="{{ url_for('results') }}">
-
-                    <span class="text">Results</span>
-                    <span class="icon">
-                        <ion-icon name="analytics-outline"></ion-icon>
-                    </span>
-                </a>
-            </li>
-            <li class="list" id="settings">
-                <a href="{{ url_for('settings') }}">
-
-                    <span class="text">Settings</span>
-                    <span class="icon">
-                        <ion-icon name="settings-outline"></ion-icon>
-                    </span>
-                </a>
-            </li>
-            <div class="indicator"></div>
-        </ul>
-
     </div>
     {% endif %}
     <!-- flash messages -->

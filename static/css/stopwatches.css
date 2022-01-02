@@ -1,155 +1,3 @@
-/*----------Colours*/
-.menu-button-color {
-    background-color: #266300;
-}
-
-.content-area-color {
-    background-color: #9DEB74;
-}
-
-.result-container-color {
-    background-color: #9DEB74;
-}
-
-.content-area-timer-color {
-    background-color: #9DEB74;
-}
-
-.body {
-    background-color: #9DEB74;
-}
-
-/*----------nav-bar*/
-header {
-    font-family: 'Aldrich', sans-serif;
-}
-
-.list-inline-item:not(:last-child) {
-    margin-right: 0;
-}
-
-.menu-container {
-    font-size: 0;
-    margin-bottom: 0;
-}
-
-#nav li {
-    font-size: 14px;
-    padding: 0;
-}
-
-.menu-button {
-    height: 70px;
-    text-align: center;
-    padding: 0;
-}
-
-.menu-button a {
-    color: white;
-    text-decoration: none;
-    width: 100%;
-    font-size: 20px;
-    height: 70px;
-}
-
-.menu-button a i {
-    padding-top: 11px;
-    display: block;
-    color: white;
-    font-size: 20px;
-}
-
-.menu-button span {
-    display: block;
-    width: 100%;
-    padding-top: 5px;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.hvr-fade:active,
-.hvr-fade:focus,
-.hvr-fade:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    height: 70px;
-}
-
-/*----------content area Home*/
-
-.content-area-home {
-    min-height: 800px;
-    height: 800px;
-    margin-top: 0;
-    font-family: 'Roboto Slab', serif;
-}
-
-.main-explanation {
-    color: black;
-    padding: 10px 10px;
-}
-
-#error {
-    color: black;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 25px;
-}
-
-#add-Btn {
-    background-color: green;
-    width: 40%;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: white;
-}
-
-#nameAdd {
-    margin: 5px 5px 5px 10px;
-    width: 60%;
-    border: 2px black solid;
-}
-
-/*----------table homepage*/
-#table {
-    padding: 10px 10px 10px 10px;
-
-}
-
-table,
-tr,
-td,
-th {
-    border: 1px solid black;
-    text-align: center;
-    color: black;
-    width: 100%;
-}
-
-td,
-th {
-    padding: 5px 5px;
-}
-
-
-/*----------Timer page*/
-
-#content-area-timer {
-    width: 100%;
-    height: 600px;
-    font-family: 'Roboto Slab', serif;
-    overflow: hidden;
-    touch-action: none;
-    min-height: 600px;
-}
-
-.timerText {
-    padding: 5px;
-}
-
 /*----------toggle buttons*/
 .switch {
     position: relative;
@@ -194,7 +42,7 @@ input:checked+.slider {
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px grey;
 }
 
 input:checked+.slider:before {
@@ -213,7 +61,6 @@ input:checked+.slider:before {
 }
 
 .b-button-area {
-    width: 25%;
     background-color: #ffffff;
     border-radius: 6px;
     border: 1px solid #dcdcdc;
@@ -233,100 +80,34 @@ input:checked+.slider:before {
     top: 1px;
 }
 
-
-.item {
-    border-radius: 7%;
-    touch-action: none;
-    user-select: none;
-    position: relative;
-    height: 70px;
-    width: 140px;
-    text-align: center;
-    background-color: rgba(240, 248, 255, 0.4);
-    color: black;
-    border: 1px solid black;
-    line-height: 40px;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.item:hover {
-    cursor: grab;
-}
-
-.item:active:hover {
-    cursor: grabbing;
-}
-
-.content-area-results {
-    width: 100%;
-    min-height: 800px;
-    height: 100%;
-}
-
-#hockeyField {
-    max-height: 80%;
-    max-width: 80%;
-    float: right;
-}
-
-
 .stopwatch {
     display: inline-block;
     background-color: white;
-    border: 1px solid black;
-    padding: 5px 5px;
-    margin: 0 5px;
-    width: 75px;
 }
 
-.stopwatch span {
-    font-weight: bold;
-    display: block;
+.stopwatch input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    background-color: white;
+    color: black;
 }
+
+
 
 .stopwatch a {
     padding-right: 5px;
     display: none;
 }
 
-#watchGroup {
-    margin-top: 10px;
-    display: inline-block;
-}
-
-#timerTable {
-    table-layout: fixed;
-}
-
-#timerTable,
-tr,
-td,
-th {
-    border: 1px solid black;
-    text-align: center;
-    color: black;
+.player-input {
+    height: 100%;
     width: 100%;
+    background-color: white;
+    color: black;
 }
 
-#timerTable td,
-th {
-    padding: 5px 0;
-}
-
-#timerTable thead {
-    background-color: #79A33E;
-    border: 1px solid black;
-}
-
-#resultsTable {
-    padding: 10px 10px 10px 10px;
-    table-layout: fixed;
-    margin-top: 5px;
-}
-
-#resultsTable tr,
-td,
-th {
-    height: 20px;
+.store button {
+    width: 100%;
 }

@@ -1,4 +1,5 @@
 // the code below is for the toggle buttons to switch between bench and field timers
+let x = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -294,8 +295,17 @@ let Stopwatch = function(elem, options) {
     reset();
 
     // private functions
+
+
+
     function createTimer() {
-        return document.createElement("span");
+        x++;
+        let input = document.createElement("input");
+        input.readonly = true;
+        input.name = "timer_" + (x);
+        input.id = "timer_" + (x);
+        input.classList.add("bold")
+        return input
     }
 
     function createButton(action, handler) {
@@ -348,7 +358,7 @@ let Stopwatch = function(elem, options) {
             s = "0" + s;
         }
 
-        timer.innerHTML = h + ':' + m + ':' + s + '';
+        timer.value = h + ':' + m + ':' + s + '';
 
     }
 
