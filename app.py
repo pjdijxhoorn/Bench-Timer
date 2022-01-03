@@ -110,7 +110,8 @@ def stopwatchClock(team_id):
         result = {
             "created_by": session["user"],
             "fieldTime_1": request.form.get("timer_2"),
-            "player1": request.form.get("player1")
+            "player1": request.form.get("player1"),
+            "overallTime": request.form.get("timer_33")
         }
 
         mongo.db.results.insert(result)

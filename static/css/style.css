@@ -36,6 +36,105 @@ body {
     color: white;
 }
 
+
+.logo {
+    color: #ffffff;
+    font-size: 32px;
+    position: relative;
+    letter-spacing: 10px;
+
+}
+
+.logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    background: rgb(0, 94, 0);
+}
+
+.box {
+    display: flex;
+    transform-style: preserve-3d;
+    gap: 5px;
+    transform: rotateY(0deg) rotateX(0deg);
+
+}
+
+.box .text {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    animation-name: rotate;
+    animation-duration: 1.25s;
+    animation-delay: calc(0.25s * var(--j));
+    animation-timing-function: ease-in;
+}
+
+
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(-1080deg);
+    }
+}
+
+.box .text::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #373737;
+    transform-origin: left;
+    transform: rotateY(90deg) translateX(10px);
+
+}
+
+.box .text span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#434343, #535353);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #fff;
+    transform-style: preserve-3d;
+    transform: rotateX(calc(90deg * var(--i))) translateZ(20px);
+
+
+}
+
+@media only screen and (max-width: 768px) and (min-width: 10px) {
+    .box .text {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .box .text span {
+        transform: rotateX(calc(90deg * var(--i))) translateZ(14px);
+    }
+
+
+    .box {
+        gap: 3px;
+    }
+
+    .logo {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+}
+
 .login {
     position: relative;
     height: 60px;
@@ -91,7 +190,11 @@ body {
     text-decoration: none;
     color: black;
 
+
 }
+
+
+
 
 .navigation ul li a .icon {
     position: relative;
@@ -169,16 +272,18 @@ body {
 }
 
 /*----------accordion team page*/
+.edit-team {
+    text-decoration: none;
+    color: black;
+}
+
+.edit-team:hover {
+    color: black;
+}
 
 .accord-ion-block {
     background: #eee;
     border: 2px solid black;
-}
-
-.accord-ion-item:hover {
-    background: rgb(0, 94, 0);
-    color: white;
-
 }
 
 .accord-ion {

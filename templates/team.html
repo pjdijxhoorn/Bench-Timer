@@ -10,7 +10,7 @@
         <h4>{{ team.teamName }}</h4>
     </div>
     <div class="col-4 text-center accord-ion-item">
-        <a href=" {{ url_for('editteam', team_id=team._id) }}">
+        <a class="edit-team" href=" {{ url_for('editteam', team_id=team._id) }}">
             <ion-icon name="create-outline"></ion-icon> edit
         </a>
     </div>

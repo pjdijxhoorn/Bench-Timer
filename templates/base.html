@@ -19,7 +19,7 @@
 
     <!--- Icon tab --->
 
-    <title>Bench timer</title>
+    <title>Bench timers</title>
 </head>
 
 <body>
@@ -28,7 +28,35 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <a href="{{ url_for('home') }}">
-                    <h1 class="text-center logo">Bench-Timer</h1>
+                    <div class="logo-box">
+                        <div class="logo"> BENCH-</div>
+                        <div class="box">
+                            <div class="text" style="--j:3;">
+                                <span style="--i:0;">T</span>
+                                <span style="--i:1;">0</span>
+                                <span style="--i:2;">1</span>
+                                <span style="--i:3;">2</span>
+                            </div>
+                            <div class="text" style="--j:2;">
+                                <span style="--i:0;">I</span>
+                                <span style="--i:1;">8</span>
+                                <span style="--i:2;">9</span>
+                                <span style="--i:3;">0</span>
+                            </div>
+                            <div class="text" style="--j:1;">
+                                <span style="--i:0;">M</span>
+                                <span style="--i:1;">0</span>
+                                <span style="--i:2;">1</span>
+                                <span style="--i:3;">2</span>
+                            </div>
+                            <div class="text" style="--j:0;">
+                                <span style="--i:0;">E</span>
+                                <span style="--i:1;">9</span>
+                                <span style="--i:2;">1</span>
+                                <span style="--i:3;">2</span>
+                            </div>
+                        </div>
+                    </div>
                 </a>
             </div>
             {% if session.user %}
@@ -123,7 +151,7 @@
 
     <!--- footer --->
     <footer class="col-12 row g-0 justify-content-center mt-3">
-        <div class="col-lg-4 col-sm-12 footer-content text-center">© 2021 Bench-Timer <br>Paul Dijxhoorn </div>
+        <div class="col-lg-4 col-sm-12 footer-content text-center">© 2021 Bench-Timers <br>Paul Dijxhoorn </div>
     </footer>
 
     <!--- js loaded at end --->
