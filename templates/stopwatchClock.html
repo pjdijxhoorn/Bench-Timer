@@ -2,224 +2,225 @@
 {% block content %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/stopwatches.css')}}" type="text/css" />
 
+<div class="stopwatch-block mb-5">
+    <form action="{{ url_for('stopwatchClock', team_id=team._id) }}" method="POST">
+        <div class="row g-0 text-center text-uppercase bold border border-dark">
+            <div class="col-3">Players</div>
+            <div class="col-3">Bench-Timer</div>
+            <div class="col-3">Switch </div>
+            <div class="col-3">Field-Timer</div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 1" value="{{team.player1}}" name="player1" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
 
-<form action="{{ url_for('stopwatchClock', team_id=team._id) }}" method="POST">
-    <div class="row g-0 text-center text-uppercase bold border border-dark">
-        <div class="col-3">Players</div>
-        <div class="col-3">Bench-Timer</div>
-        <div class="col-3">Switch </div>
-        <div class="col-3">Field-Timer</div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 1" value="{{team.player1}}" name="player1" readonly>
         </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 2" value="{{team.player2}}" name="player2" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 3" value="{{team.player3}}" name="player3" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 4" value="{{team.player4}}" name="player4" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></span></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 5" value="{{team.player5}}" name="player5" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 6" value="{{team.player6}}" name="player6" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 7" value=" {{team.player7}}" name="player7" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 8" value="{{team.player8}}" name="player8" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 9" value="{{team.player9}}" name="player9" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 10" value="{{team.player10}}" name="player10" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 11" value="{{team.player11}}" name="player11" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 12" value="{{team.player12}}" name="player12" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 13" value="{{team.player13}}" name="player13" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 14" value="{{team.player14}}" name="player14" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></span></div>
+        </div>
+        <div class="row g-0 text-center border border-dark">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 15" value="{{team.player15}}" name="player15" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 text-center border border-dark ">
+            <div class="col-3">
+                <input type="text" class="player-input text-center border-0" placeholder="Player 16" value="{{team.player16}}" name="player16" readonly>
+            </div>
+            <div class="col-3 basic stopwatch"></div>
+            <div class="col-3">
+                <label class="switch">
+                    <input type="checkbox" class="toggleswitch" checked>
+                    <span class="slider"></span>
+                </label></div>
+            <div class="col-3 basic stopwatch"></div>
+        </div>
+        <div class="row g-0 border border-dark">
+            <div class=" col-4 text-center bold">Total Time: </div>
+            <div id="mainStopwatch" class="basic stopwatch main col-4"></div>
+            <div class="col-4 text-center"> <button class="b-button-area store">Store Results</button></div>
+        </div>
+    </form>
 
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 2" value="{{team.player2}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 3" value="{{team.player3}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 4" value="{{team.player4}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></span></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 5" value="{{team.player5}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 6" value="{{team.player6}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 7" value=" {{team.player7}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 8" value="{{team.player8}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 9" value="{{team.player9}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 10" value="{{team.player10}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 11" value="{{team.player11}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 12" value="{{team.player12}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 13" value="{{team.player13}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 14" value="{{team.player14}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></span></div>
-    </div>
-    <div class="row g-0 text-center border border-dark">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 15" value="{{team.player15}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 text-center border border-dark ">
-        <div class="col-3">
-            <input type="text" class="player-input text-center border-0" placeholder="Player 16" value="{{team.player16}}" readonly>
-        </div>
-        <div class="col-3 basic stopwatch"></div>
-        <div class="col-3">
-            <label class="switch">
-                <input type="checkbox" class="toggleswitch" checked>
-                <span class="slider"></span>
-            </label></div>
-        <div class="col-3 basic stopwatch"></div>
-    </div>
-    <div class="row g-0 border border-dark">
-        <div class=" col-4 text-center bold">Total Time: </div>
-        <div id="mainStopwatch" class="basic stopwatch main col-4"></div>
-        <div class="col-4 text-center"> <button class="b-button-area store">Store Results</button></div>
-    </div>
-</form>
 
-<div class="btngroup sticky-bottom">
-    <button id="start" class="b-button-area">
-        Start <i class="fas fa-play"></i></button>
-    <button id="stop" class="b-button-area" onclick="stopBtn()">
-        Stop <i class="fas fa-stop"></i></button>
-    <button id="reset" class="b-button-area" onclick="resetBtn()">
-        Reset <i class="fas fa-undo"></i></button>
+    <div class="btngroup sticky-bottom">
+        <button id="start" class="b-button-area">
+            Start <i class="fas fa-play"></i></button>
+        <button id="stop" class="b-button-area" onclick="stopBtn()">
+            Stop <i class="fas fa-stop"></i></button>
+        <button id="reset" class="b-button-area" onclick="resetBtn()">
+            Reset <i class="fas fa-undo"></i></button>
+    </div>
+
 </div>
-
-
 
 <script src="/static/js/stopwatches.js"></script>
 

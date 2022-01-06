@@ -110,7 +110,37 @@ def stopwatchClock(team_id):
         result = {
             "created_by": session["user"],
             "fieldTime_1": request.form.get("timer_2"),
+            "fieldTime_2": request.form.get("timer_4"),
+            "fieldTime_3": request.form.get("timer_6"),
+            "fieldTime_4": request.form.get("timer_8"),
+            "fieldTime_5": request.form.get("timer_10"),
+            "fieldTime_6": request.form.get("timer_12"),
+            "fieldTime_7": request.form.get("timer_14"),
+            "fieldTime_8": request.form.get("timer_16"),
+            "fieldTime_9": request.form.get("timer_18"),
+            "fieldTime_10": request.form.get("timer_20"),
+            "fieldTime_11": request.form.get("timer_22"),
+            "fieldTime_12": request.form.get("timer_24"),
+            "fieldTime_13": request.form.get("timer_26"),
+            "fieldTime_14": request.form.get("timer_28"),
+            "fieldTime_15": request.form.get("timer_30"),
+            "fieldTime_16": request.form.get("timer_32"),
             "player1": request.form.get("player1"),
+            "player2": request.form.get("player2"),
+            "player3": request.form.get("player3"),
+            "player4": request.form.get("player4"),
+            "player5": request.form.get("player5"),
+            "player6": request.form.get("player6"),
+            "player7": request.form.get("player7"),
+            "player8": request.form.get("player8"),
+            "player9": request.form.get("player9"),
+            "player10": request.form.get("player10"),
+            "player11": request.form.get("player11"),
+            "player12": request.form.get("player12"),
+            "player13": request.form.get("player13"),
+            "player14": request.form.get("player14"),
+            "player15": request.form.get("player15"),
+            "player16": request.form.get("player16"),
             "overallTime": request.form.get("timer_33")
         }
 
@@ -202,7 +232,10 @@ def deleteTeam(team_id):
 
 @app.route("/results")
 def results():
-    return render_template("results.html")
+
+    userResults = mongo.db.results.find(
+        {"created_by": session["user"]})
+    return render_template("results.html", userResults=userResults)
 
 
 @app.route("/settings")

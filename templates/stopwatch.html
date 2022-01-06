@@ -4,12 +4,19 @@
 
 
 <h2 class="text-center text-black">Stopwatch</h2>
+<div class=" row g-0 ">
+    {% for team in userTeam %}
+    <div class="card col-sm-12 col-md-6 col-lg-4">
+        <h5 class="card-header">{{ team.teamName }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">Matches played:</h5>
+            <p class="card-text">extra text</p>
+            <a href="{{ url_for('stopwatchClock', team_id=team._id) }}" class="btn btn-primary">Time this team</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-{% for team in userTeam %}
-<a href="{{ url_for('stopwatchClock', team_id=team._id) }}"> {{ team.teamName }}22</a>
-{% endfor %}
-
-<!--  add disable to the input fields and give them id's so the form on the python side can pick them up -->
 
 
 

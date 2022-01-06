@@ -1,7 +1,7 @@
 body {
     height: 100%;
+    min-height: 100vh;
     width: 100%;
-    background: white;
     padding: 0px;
     margin: 0px;
 }
@@ -15,6 +15,15 @@ body {
 .bold {
     font-weight: bold;
 }
+
+.card {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
 
 /*----------Colours*/
 .text-black {
@@ -58,7 +67,6 @@ body {
     transform-style: preserve-3d;
     gap: 5px;
     transform: rotateY(0deg) rotateX(0deg);
-
 }
 
 .box .text {
@@ -189,12 +197,7 @@ body {
     text-align: center;
     text-decoration: none;
     color: black;
-
-
 }
-
-
-
 
 .navigation ul li a .icon {
     position: relative;
@@ -218,8 +221,6 @@ body {
     border: 6px solid white;
     transition: 0.4s;
 }
-
-
 
 .navigation ul li a .text {
     position: absolute;
@@ -282,8 +283,7 @@ body {
 }
 
 .accord-ion-block {
-    background: #eee;
-    border: 2px solid black;
+    border-bottom: 1px solid grey;
 }
 
 .accord-ion {
@@ -298,6 +298,34 @@ body {
     transition: max-height 0.2s ease-out;
 }
 
+/*----------stopwatch page*/
+
+.team-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.team-btn a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.stopwatch-block {
+    margin: 10px;
+    margin-bottom: 80px;
+}
+
+/*----------teams page*/
+
+.teams-block {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+/*----------results page*/
+
+
+
 /*----------footer*/
 
 footer {
@@ -307,5 +335,7 @@ footer {
     color: white;
     width: 100%;
     bottom: 0px;
-    margin-top: 60px;
+    position: fixed;
+    z-index: 2;
+
 }
