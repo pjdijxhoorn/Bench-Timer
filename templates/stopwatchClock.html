@@ -4,6 +4,7 @@
 
 <div class="stopwatch-block mb-5">
     <form action="{{ url_for('stopwatchClock', team_id=team._id) }}" method="POST">
+        <input type="hidden" value="{{team.teamName}}" name="teamName" readonly>
         <div class="row g-0 text-center text-uppercase bold border border-dark">
             <div class="col-3">Players</div>
             <div class="col-3">Bench-Timer</div>

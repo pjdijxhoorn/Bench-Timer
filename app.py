@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -105,10 +106,14 @@ def stopwatch():
 def stopwatchClock(team_id):
     userTeam = mongo.db.teams.find(
         {"created_by": session["user"]})
+    date = datetime.now()
 
     if request.method == "POST":
         result = {
             "created_by": session["user"],
+            "overallTime": request.form.get("timer_33"),
+            "datum": date.strftime("%d/%m/%y"),
+            "teamName": request.form.get("teamName"),
             "fieldTime_1": request.form.get("timer_2"),
             "fieldTime_2": request.form.get("timer_4"),
             "fieldTime_3": request.form.get("timer_6"),
@@ -141,7 +146,6 @@ def stopwatchClock(team_id):
             "player14": request.form.get("player14"),
             "player15": request.form.get("player15"),
             "player16": request.form.get("player16"),
-            "overallTime": request.form.get("timer_33")
         }
 
         mongo.db.results.insert(result)
