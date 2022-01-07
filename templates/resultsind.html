@@ -1,0 +1,74 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+<h2 class="text-center text-black">Results</h2>
+
+<div class="row g-0 m-3 mb-5">
+    {% for result in results %}
+    <div class="card col-12">
+        <div class="card-body row g-0">
+            <h5 class="card-title col-6">Team: {{ result.teamName }}</h5>
+            <h5 class="card-title col-6"> On: {{ result.datum }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted col-5 text-center"> Total match time:</h6>
+            <h6 class="card-subtitle mb-2 text-muted col-7 text-center" id="overall-time">{{ result.overallTime }}</h6>
+            <p class="card-text col-4 bold">Player: </p>
+            <p class="card-text col-4 bold"> Bench Time: </p>
+            <p class="card-text col-4 bold">Field Time:</p>
+
+            <p class="card-text col-4">{{ result.player1 }} </p>
+            <p class="card-text col-4" id="bench0"> </p>
+            <p class="card-text col-4" id="field0">{{ result.fieldTime_1 }} </p>
+            <p class="card-text col-4">{{ result.player2 }} </p>
+            <p class="card-text col-4" id="bench1"> </p>
+            <p class="card-text col-4" id="field1"> {{ result.fieldTime_2 }} </p>
+            <p class="card-text col-4">{{ result.player3 }} </p>
+            <p class="card-text col-4" id="bench2"> </p>
+            <p class="card-text col-4" id="field2">{{ result.fieldTime_3 }} </p>
+            <p class="card-text col-4">{{ result.player4 }} </p>
+            <p class="card-text col-4" id="bench3"> </p>
+            <p class="card-text col-4" id="field3">{{ result.fieldTime_4 }} </p>
+            <p class="card-text col-4">{{ result.player5 }} </p>
+            <p class="card-text col-4" id="bench4"> </p>
+            <p class="card-text col-4" id="field4">{{ result.fieldTime_5 }} </p>
+            <p class="card-text col-4">{{ result.player6 }} </p>
+            <p class="card-text col-4" id="bench5"> </p>
+            <p class="card-text col-4" id="field5">{{ result.fieldTime_6 }} </p>
+            <p class="card-text col-4">{{ result.player7 }} </p>
+            <p class="card-text col-4" id="bench6"> </p>
+            <p class="card-text col-4" id="field6">{{ result.fieldTime_7 }} </p>
+            <p class="card-text col-4">{{ result.player8 }} </p>
+            <p class="card-text col-4" id="bench7"> </p>
+            <p class="card-text col-4" id="field7">{{ result.fieldTime_8 }} </p>
+            <p class="card-text col-4">{{ result.player9 }} </p>
+            <p class="card-text col-4" id="bench8"> </p>
+            <p class="card-text col-4" id="field8">{{ result.fieldTime_9 }} </p>
+            <p class="card-text col-4">{{ result.player10 }} </p>
+            <p class="card-text col-4" id="bench9"> </p>
+            <p class="card-text col-4" id="field9">{{ result.fieldTime_10 }} </p>
+            <p class="card-text col-4">{{ result.player11 }} </p>
+            <p class="card-text col-4" id="bench10"> </p>
+            <p class="card-text col-4" id="field10">{{ result.fieldTime_11 }} </p>
+            <p class="card-text col-4">{{ result.player12 }} </p>
+            <p class="card-text col-4" id="bench11"> </p>
+            <p class="card-text col-4" id="field11">{{ result.fieldTime_12 }} </p>
+            <p class="card-text col-4">{{ result.player13 }} </p>
+            <p class="card-text col-4" id="bench12"> </p>
+            <p class="card-text col-4" id="field12">{{ result.fieldTime_13 }} </p>
+            <p class="card-text col-4">{{ result.player14 }} </p>
+            <p class="card-text col-4" id="bench13"> </p>
+            <p class="card-text col-4" id="field13">{{ result.fieldTime_14 }} </p>
+            <p class="card-text col-4">{{ result.player15 }} </p>
+            <p class="card-text col-4" id="bench14"> </p>
+            <p class="card-text col-4" id="field14">{{ result.fieldTime_15 }} </p>
+            <p class="card-text col-4">{{ result.player16 }} </p>
+            <p class="card-text col-4" id="bench15"> </p>
+            <p class="card-text col-4" id="field15">{{ result.fieldTime_16 }} </p>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="/static/js/results.js"></script>
+{% endblock %}

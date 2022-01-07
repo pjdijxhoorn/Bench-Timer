@@ -199,6 +199,7 @@ def editteam(team_id):
         # gets a recipe and takes all info /changes from the form and saves it
         editedteam = {
             "teamName": request.form.get("teamName"),
+            "created_by": session["user"],
             "player1": request.form.get("player1"),
             "player2": request.form.get("player2"),
             "player3": request.form.get("player3"),
@@ -214,8 +215,8 @@ def editteam(team_id):
             "player13": request.form.get("player13"),
             "player14": request.form.get("player14"),
             "player15": request.form.get("player15"),
-            "player16": request.form.get("player16"),
-            "created_by": session["user"]
+            "player16": request.form.get("player16")
+            
         }
         mongo.db.teams.update({"_id": ObjectId(team_id)}, editedteam)
         flash("Team Successfully edited")
@@ -240,6 +241,20 @@ def results():
     userResults = mongo.db.results.find(
         {"created_by": session["user"]})
     return render_template("results.html", userResults=userResults)
+
+
+@app.route("/resultsind/<results_id>", methods=["GET", "POST"])
+def resultsind(results_id):
+
+    results = mongo.db.results.find({"_id": ObjectId(results_id)})
+    return render_template("resultsind.html", results=results)
+
+@app.route("/deleteResults/<results_id>", methods=["GET", "POST"])
+def deleteResults(results_id):
+    # deletes recipe
+    mongo.db.results.remove({"_id": ObjectId(results_id)})
+    flash("results succesfully deleted")
+    return redirect(url_for('results', username=session['user']))
 
 
 @app.route("/settings")

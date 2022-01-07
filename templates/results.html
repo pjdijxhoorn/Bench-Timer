@@ -1,52 +1,52 @@
 {% extends "base.html"%}
 {% block content %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/logo.css')}}" type="text/css" />
+
 <h2 class="text-center text-black">Results</h2>
 
-<div class="row g-0 m-3 mb-5">
+<div class="m-3 mb-5">
     {% for results in userResults %}
     <div class="card col-12">
         <div class="card-body row g-0">
             <h5 class="card-title col-6">Team: {{ results.teamName }}</h5>
             <h5 class="card-title col-6"> On: {{ results.datum }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted col-12 text-center">Match time: {{ results.overallTime }}</h6>
-            <p class="card-text col-6 bold">Player: </p>
-            <p class="card-text col-6 bold">Field Time:</p>
-            <p class="card-text col-6">{{ results.player1 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_1 }} </p>
-            <p class="card-text col-6">{{ results.player2 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_2 }} </p>
-            <p class="card-text col-6">{{ results.player3 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_3 }} </p>
-            <p class="card-text col-6">{{ results.player4 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_4 }} </p>
-            <p class="card-text col-6">{{ results.player5 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_5 }} </p>
-            <p class="card-text col-6">{{ results.player6 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_6 }} </p>
-            <p class="card-text col-6">{{ results.player7 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_7 }} </p>
-            <p class="card-text col-6">{{ results.player8 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_8 }} </p>
-            <p class="card-text col-6">{{ results.player9 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_9 }} </p>
-            <p class="card-text col-6">{{ results.player10 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_10 }} </p>
-            <p class="card-text col-6">{{ results.player11 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_11 }} </p>
-            <p class="card-text col-6">{{ results.player12 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_12 }} </p>
-            <p class="card-text col-6">{{ results.player13 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_13 }} </p>
-            <p class="card-text col-6">{{ results.player14 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_14 }} </p>
-            <p class="card-text col-6">{{ results.player15 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_15 }} </p>
-            <p class="card-text col-6">{{ results.player16 }} </p>
-            <p class="card-text col-6">{{ results.fieldTime_16 }} </p>
+            <h6 class="card-subtitle mb-2 text-muted col-5 text-center"> Total match time:</h6>
+            <h6 class="card-subtitle mb-2 text-muted col-7 text-center" id="overall-time">{{ results.overallTime }}</h6>
+
+            <!-- Button trigger modal -->
+            <div type="button" class="deleteteam col-6 btn bold" data-bs-toggle="modal" data-bs-target="#test{{results._id}}">
+                <ion-icon name="trash-outline"></ion-icon> Delete
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="test{{results._id}}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content text-black">
+                        <div class="modal-header">
+                            <h5 class="modal-title modals">Delete Team</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body modals">
+                            <p>Are you sure you want to delete this result ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ url_for('deleteResults', results_id=results._id) }}" class="btn submit-btn base-btn remove-btn center">
+                                <h6>
+                                    <ion-icon name="trash-outline"></ion-icon> Delete
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 btn results-btn bold">
+                <a href="{{ url_for('resultsind', results_id=results._id) }}"><ion-icon name="eye-outline"></ion-icon> see results</a>
+            </div>
 
         </div>
     </div>
     {% endfor %}
 </div>
+
 {% endblock %}

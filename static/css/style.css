@@ -31,6 +31,10 @@ body {
 }
 
 /*----------nav-bar*/
+.navigation-bar {
+    z-index: 2;
+}
+
 .home-bar {
     background: rgb(0, 94, 0);
     color: white;
@@ -298,6 +302,10 @@ body {
     transition: max-height 0.2s ease-out;
 }
 
+.card {
+    position: unset;
+}
+
 /*----------stopwatch page*/
 
 .team-btn a {
@@ -323,6 +331,15 @@ body {
 
 /*----------results page*/
 
+.results-btn a{
+    text-decoration: none;
+    color: rgb(0,94,0);
+}
+    
+.results-btn:hover a{
+    text-decoration: none;
+    color: white;
+}
 
 
 /*----------footer*/
