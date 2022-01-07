@@ -24,6 +24,15 @@ body {
     z-index: 1;
 }
 
+.border-grey{
+    border-bottom:  2px solid #ccc;
+    
+}
+
+.cap{
+    text-transform: capitalize;
+}
+
 
 /*----------Colours*/
 .text-black {
@@ -322,6 +331,8 @@ body {
     margin-bottom: 80px;
 }
 
+
+
 /*----------teams page*/
 
 .teams-block {
@@ -353,5 +364,6 @@ footer {
     bottom: 0px;
     position: fixed;
     z-index: 2;
-
 }
+
+

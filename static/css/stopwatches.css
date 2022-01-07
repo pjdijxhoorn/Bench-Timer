@@ -2,9 +2,11 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 34px;
+    width: 84px;
+    height: 38px;
     margin-top: 5px;
+    background: #000;
+    border-radius: 36px;
 }
 
 .switch input {
@@ -14,14 +16,19 @@
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
+    height: 34px;
+    width: 80px;
+    top: 2px;
+    left: 2px;
     right: 0;
     bottom: 0;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 34px;
+    background: linear-gradient(356deg, rgba(0,0,0,0.4990371148459384) 0%, rgba(120,120,120,0.3029586834733894) 75%, rgba(255,255,255,0.3561799719887955) 100%);
+    
+    
 }
 
 .slider:before {
@@ -35,6 +42,7 @@
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
+    background: radial-gradient(circle at 8px 8px, white, grey);
 }
 
 input:checked+.slider {
