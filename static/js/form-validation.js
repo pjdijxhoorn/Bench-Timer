@@ -47,8 +47,6 @@ password.addEventListener('input', () => {
 confirm.addEventListener('input', () => {
     let conf = confirm.value;
     let pass = password.value;
-    console.log(conf)
-    console.log(pass)
     if (conf == pass) {
         match.classList.add("item__active");
     } else {

@@ -24,12 +24,12 @@ body {
     z-index: 1;
 }
 
-.border-grey{
-    border-bottom:  2px solid #ccc;
-    
+.border-grey {
+    border-bottom: 2px solid #ccc;
+
 }
 
-.cap{
+.cap {
     text-transform: capitalize;
 }
 
@@ -342,12 +342,12 @@ body {
 
 /*----------results page*/
 
-.results-btn a{
+.results-btn a {
     text-decoration: none;
-    color: rgb(0,94,0);
+    color: rgb(0, 94, 0);
 }
-    
-.results-btn:hover a{
+
+.results-btn:hover a {
     text-decoration: none;
     color: white;
 }
@@ -365,5 +365,3 @@ footer {
     position: fixed;
     z-index: 2;
 }
-
-

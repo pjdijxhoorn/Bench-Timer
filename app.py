@@ -63,6 +63,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
+        return render_template("home.html")
     return render_template("register.html")
 
 
@@ -81,6 +82,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
+                return render_template("home.html")
 
             else:
                 # invalid password match
