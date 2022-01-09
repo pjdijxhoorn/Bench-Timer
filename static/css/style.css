@@ -253,8 +253,97 @@ body {
 }
 
 /*----------flash message box*/
-.flash-box {
+.white-block {
     margin-top: 30px;
+}
+
+.message {
+    height: 70px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 30px;
+}
+
+.success-message {
+    background-color: #2ecc40;
+}
+
+.error-message {
+    background-color: #ff4136;
+}
+
+.message .row {
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 10px) {
+    .message {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+.message-icon {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    height: 100%;
+    font-size: 2em;
+}
+
+
+
+.message-body {
+    color: white;
+    line-height: 70px;
+    height: 100%;
+    padding-left: 10px;
+    position: relative;
+}
+
+.Message-button {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 10px) {
+    .Message-button {
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
+
+
+.Message-button:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+.Message-button ion-icon {
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    font-size: 1.2em;
+
+}
+
+.Message-button:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.is-hidden {
+    opacity: 0;
+    height: 0;
+    font-size: 0;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
 }
 
 /*---------- forms*/

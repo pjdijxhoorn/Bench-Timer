@@ -40,15 +40,15 @@ def register():
         passwordconfirm = request.form.get("passwordconfirm")
         # check for existing users / mail and password confirm
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", 'error')
             return redirect(url_for("register"))
 
         if existing_email:
-            flash("Email is already registered")
+            flash("Email is already registered", 'error')
             return redirect(url_for("register"))
 
         if password != passwordconfirm:
-            flash("The passwords should match")
+            flash("The passwords should match", 'error')
             return redirect(url_for("register"))
 
         # build a new user
@@ -62,7 +62,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", 'success')
         return render_template("home.html")
     return render_template("register.html")
 
@@ -81,17 +81,17 @@ def login():
                                 request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
-                    request.form.get("username")))
+                    request.form.get("username")), 'success')
                 return render_template("home.html")
 
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", 'error')
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", 'error')
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -151,7 +151,7 @@ def stopwatchClock(team_id):
         }
 
         mongo.db.results.insert(result)
-        flash("The results are stored")
+        flash("The results are stored", 'success')
     team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
     return render_template(
                             "stopwatchClock.html",
@@ -186,7 +186,7 @@ def team():
 
         # inserts the team
         mongo.db.teams.insert_one(newteam)
-        flash("team Successfully Added")
+        flash("team Successfully Added", 'success')
         return redirect(url_for("team"))
 
     userTeam = mongo.db.teams.find(
@@ -218,10 +218,10 @@ def editteam(team_id):
             "player14": request.form.get("player14"),
             "player15": request.form.get("player15"),
             "player16": request.form.get("player16")
-            
+
         }
         mongo.db.teams.update({"_id": ObjectId(team_id)}, editedteam)
-        flash("Team Successfully edited")
+        flash("Team Successfully edited", 'success')
         return redirect(url_for('team', username=session['user']))
 
     team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
@@ -233,13 +233,12 @@ def editteam(team_id):
 def deleteTeam(team_id):
     # deletes recipe
     mongo.db.teams.remove({"_id": ObjectId(team_id)})
-    flash("team succesfully deleted")
+    flash("team succesfully deleted", 'success')
     return redirect(url_for('team', username=session['user']))
 
 
 @app.route("/results")
 def results():
-
     userResults = mongo.db.results.find(
         {"created_by": session["user"]})
     return render_template("results.html", userResults=userResults)
@@ -251,11 +250,12 @@ def resultsind(results_id):
     results = mongo.db.results.find({"_id": ObjectId(results_id)})
     return render_template("resultsind.html", results=results)
 
+
 @app.route("/deleteResults/<results_id>", methods=["GET", "POST"])
 def deleteResults(results_id):
     # deletes recipe
     mongo.db.results.remove({"_id": ObjectId(results_id)})
-    flash("results succesfully deleted")
+    flash("results successfully deleted", 'success')
     return redirect(url_for('results', username=session['user']))
 
 
@@ -266,7 +266,7 @@ def settings():
 
 @app.route("/logout")
 def logout():
-    flash("You have been logged out")
+    flash("You have been logged out", 'success')
     session.pop("user")
     return redirect(url_for("login"))
 
