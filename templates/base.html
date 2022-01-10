@@ -24,7 +24,7 @@
 
 <body>
     <div class="navigation-bar sticky-top">
-        <div class="home-bar row g-0">
+        <div class="home-bar row g-0" id="home-bar">
             <div class="col-2"></div>
             <div class="col-8">
                 <a href="{{ url_for('home') }}">
@@ -81,10 +81,8 @@
             </div>
             {% endif %}
         </div>
-
-
         {% if session.user %}
-        <div class="navigation">
+        <div class="navigation" id="navigation">
             <ul>
                 <li class="list" id="timer">
                     <a href="{{ url_for('stopwatch') }}">
@@ -126,6 +124,7 @@
             </ul>
         </div>
     </div>
+
     {% endif %}
     <!-- flash messages -->
     <section class="flash-box">
@@ -179,11 +178,6 @@
     <!--- content block --->
     {% block content %}
     {% endblock %}
-
-    <script>
-
-    </script>
-
 
     <!--- footer --->
     <footer class="col-12 row g-0 justify-content-center mt-3">

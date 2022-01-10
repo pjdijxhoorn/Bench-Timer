@@ -37,3 +37,7 @@ function remove() {
 
 list.forEach((item) =>
     item.addEventListener('mouseout', remove));
+
+if (!document.getElementById("navigation")) {
+    document.getElementById("home-bar").classList.add('border-bottom')
+}
