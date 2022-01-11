@@ -2,5 +2,25 @@
 {% block content %}
 <h2 class="text-center text-black">Settings</h2>
 
+<div class="card col-10 offset-1">
+    <p class="main-explanation px-3 pt-3 text-black bold">
+        User details
+    </p>
+    <p class="main-explanation px-3 text-black" >Username: {{user.username}}</p>
+    <p class="main-explanation px-3 text-black">Email: {{user.email}} </p>
+    <a class="edit-password btn m-3" href=" {{ url_for('passwordsettings') }}">change password</a>
+</div>
 
+
+
+
+
+
+
+
+<div class="text-center">
+    <h4>About</h4>
+    <p>Author: Paul Dijxhoorn</p>
+    <p>version: 2.0</p>
+</div>
 {% endblock %}

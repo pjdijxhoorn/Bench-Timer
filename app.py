@@ -261,7 +261,11 @@ def deleteResults(results_id):
 
 @app.route("/settings")
 def settings():
-    return render_template("settings.html")
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one({"username": username})
+    return render_template("settings.html", user=user)
 
 
 @app.route("/logout")
@@ -269,6 +273,36 @@ def logout():
     flash("You have been logged out", 'success')
     session.pop("user")
     return redirect(url_for("login"))
+
+@app.route("/passwordsettings", methods=["GET", "POST"])
+def passwordsettings():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one({"username": username})
+
+    if request.method == "POST":
+        # check if username exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()}) 
+        
+        if existing_user:
+            # does password match user input
+            existing_user["password"], request.form.get("oldpassword")
+
+            newpass = {
+                "username": request.form.get("username").lower(),
+                "password": generate_password_hash(request.form.get(
+                "passwordconfirm")),
+                "email": request.form.get("email")
+            }
+              
+            mongo.db.users.replace_one(user, newpass)
+            flash("Password succesfully updated", 'success')
+            return render_template(
+            "settings.html", username=username)
+    
+    return render_template(
+        "passwordsettings.html", user=user)
 
 
 if __name__ == "__main__":
