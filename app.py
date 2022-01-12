@@ -1,22 +1,45 @@
 import os
+from datetime import datetime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_mail import Mail
+from flask_mail import Message
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+# all the configs of the mail
+# app.config["TESTING"] = os.environ.get("TESTING")
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": os.environ["MAIL_USERNAME"],
+    "MAIL_PASSWORD": os.environ["MAIL_PASSWORD"]
+    }
+
+
+app.config.update(mail_settings)
+mail = Mail(app)
 mongo = PyMongo(app)
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")
 
 
 @app.route("/")
@@ -261,7 +284,6 @@ def deleteResults(results_id):
 
 @app.route("/settings")
 def settings():
-
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one({"username": username})
@@ -274,6 +296,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
 @app.route("/passwordsettings", methods=["GET", "POST"])
 def passwordsettings():
     username = mongo.db.users.find_one(
@@ -283,26 +306,59 @@ def passwordsettings():
     if request.method == "POST":
         # check if username exists
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()}) 
-        
+            {"username": request.form.get("username").lower()})
+
         if existing_user:
             # does password match user input
-            existing_user["password"], request.form.get("oldpassword")
+            if existing_user["password"] == request.form.get("oldpassword"):
 
-            newpass = {
-                "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get(
-                "passwordconfirm")),
-                "email": request.form.get("email")
-            }
-              
-            mongo.db.users.replace_one(user, newpass)
-            flash("Password succesfully updated", 'success')
-            return render_template(
-            "settings.html", username=username)
-    
+                newpass = {
+                    "username": request.form.get("username").lower(),
+                    "password": generate_password_hash(
+                                                    request.form.get(
+                                                        "passwordconfirm")),
+                    "email": request.form.get("email")
+                    }
+
+                mongo.db.users.replace_one(user, newpass)
+                flash("Password successfully updated", 'success')
+                return render_template("settings.html", username=username)
+
     return render_template(
         "passwordsettings.html", user=user)
+
+
+@app.route("/passwordrecovery")
+def passwordrecovery():
+
+    return render_template(
+        "passwordrecovery.html")
+
+
+@app.route("/recoverymail", methods=["GET", "POST"])
+def recoverymail():
+
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        print(existing_user)
+        if existing_user:
+
+            msg = Message('hey there',
+            sender='infobenchtimer@gmail.com',
+            recipients=['pjdijxhoorn@hotmail.com'],
+            body="this is the body text")
+
+            print(msg)
+            mail.send(msg)
+
+            flash("An email with a link has been send", 'success')
+            return render_template("login.html")
+
+        else:
+            flash("the mail/ username isnt correct", 'error')
+            return render_template("passwordrecovery.html")
+    return render_template("passwordrecovery.html")
 
 
 if __name__ == "__main__":

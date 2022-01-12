@@ -7,7 +7,7 @@
     <div class="card col-sm-12 col-md-6 col-lg-4">
         <h5 class="card-header">{{ team.teamName }}</h5>
         <div class="card-body">
-            <a href="{{ url_for('stopwatchClock', team_id=team._id) }}" class="btn btn-primary">Time this team</a>
+            <a href="{{ url_for('stopwatchClock', team_id=team._id) }}" class="btn btn-primary boxshadow">Time this team</a>
         </div>
     </div>
     {% endfor %}

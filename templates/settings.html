@@ -6,21 +6,15 @@
     <p class="main-explanation px-3 pt-3 text-black bold">
         User details
     </p>
-    <p class="main-explanation px-3 text-black" >Username: {{user.username}}</p>
+    <p class="main-explanation px-3 text-black">Username: {{user.username}}</p>
     <p class="main-explanation px-3 text-black">Email: {{user.email}} </p>
-    <a class="edit-password btn m-3" href=" {{ url_for('passwordsettings') }}">change password</a>
+    <a class="edit-password btn m-3 boxshadow" href=" {{ url_for('passwordsettings') }}">Change password</a>
 </div>
-
-
-
-
-
-
-
 
 <div class="text-center">
     <h4>About</h4>
     <p>Author: Paul Dijxhoorn</p>
-    <p>version: 2.0</p>
+    <p>production year: 2022</p>
+    <p>Version: 2.0</p>
 </div>
 {% endblock %}

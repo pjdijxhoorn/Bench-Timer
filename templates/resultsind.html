@@ -4,67 +4,95 @@
 
 <h2 class="text-center text-black">Results</h2>
 
-<div class="row g-0 m-3 mb-5">
-    {% for result in results %}
+<div class="row g-0 m-3 mb-5 results-card">
+    {% for results in results %}
     <div class="card col-12">
-        <div class="card-body row g-0">
-            <h5 class="card-title col-6">Team: {{ result.teamName }}</h5>
-            <h5 class="card-title col-6"> On: {{ result.datum }}</h5>
+        <div class="card-body row g-0 ">
+            <h5 class="card-title col-6">Team: {{ results.teamName }}</h5>
+            <h5 class="card-title col-6"> On: {{ results.datum }}</h5>
             <h6 class="card-subtitle mb-2 text-muted col-5 text-center"> Total match time:</h6>
-            <h6 class="card-subtitle mb-2 text-muted col-7 text-center" id="overall-time">{{ result.overallTime }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted col-7 text-center" id="overall-time">{{ results.overallTime }}</h6>
             <p class="card-text col-4 bold">Player: </p>
             <p class="card-text col-4 bold"> Bench Time: </p>
             <p class="card-text col-4 bold">Field Time:</p>
 
-            <p class="card-text col-4">{{ result.player1 }} </p>
+            <p class="card-text col-4 cap">{{ results.player1 }} </p>
             <p class="card-text col-4" id="bench0"> </p>
-            <p class="card-text col-4" id="field0">{{ result.fieldTime_1 }} </p>
-            <p class="card-text col-4">{{ result.player2 }} </p>
+            <p class="card-text col-4" id="field0">{{ results.fieldTime_1 }} </p>
+            <p class="card-text col-4 cap">{{ results.player2 }} </p>
             <p class="card-text col-4" id="bench1"> </p>
-            <p class="card-text col-4" id="field1"> {{ result.fieldTime_2 }} </p>
-            <p class="card-text col-4">{{ result.player3 }} </p>
+            <p class="card-text col-4" id="field1"> {{ results.fieldTime_2 }} </p>
+            <p class="card-text col-4 cap">{{ results.player3 }} </p>
             <p class="card-text col-4" id="bench2"> </p>
-            <p class="card-text col-4" id="field2">{{ result.fieldTime_3 }} </p>
-            <p class="card-text col-4">{{ result.player4 }} </p>
+            <p class="card-text col-4" id="field2">{{ results.fieldTime_3 }} </p>
+            <p class="card-text col-4 cap">{{ results.player4 }} </p>
             <p class="card-text col-4" id="bench3"> </p>
-            <p class="card-text col-4" id="field3">{{ result.fieldTime_4 }} </p>
-            <p class="card-text col-4">{{ result.player5 }} </p>
+            <p class="card-text col-4" id="field3">{{ results.fieldTime_4 }} </p>
+            <p class="card-text col-4 cap">{{ results.player5 }} </p>
             <p class="card-text col-4" id="bench4"> </p>
-            <p class="card-text col-4" id="field4">{{ result.fieldTime_5 }} </p>
-            <p class="card-text col-4">{{ result.player6 }} </p>
+            <p class="card-text col-4" id="field4">{{ results.fieldTime_5 }} </p>
+            <p class="card-text col-4 cap">{{ results.player6 }} </p>
             <p class="card-text col-4" id="bench5"> </p>
-            <p class="card-text col-4" id="field5">{{ result.fieldTime_6 }} </p>
-            <p class="card-text col-4">{{ result.player7 }} </p>
+            <p class="card-text col-4" id="field5">{{ results.fieldTime_6 }} </p>
+            <p class="card-text col-4 cap">{{ results.player7 }} </p>
             <p class="card-text col-4" id="bench6"> </p>
-            <p class="card-text col-4" id="field6">{{ result.fieldTime_7 }} </p>
-            <p class="card-text col-4">{{ result.player8 }} </p>
+            <p class="card-text col-4" id="field6">{{ results.fieldTime_7 }} </p>
+            <p class="card-text col-4 cap">{{ results.player8 }} </p>
             <p class="card-text col-4" id="bench7"> </p>
-            <p class="card-text col-4" id="field7">{{ result.fieldTime_8 }} </p>
-            <p class="card-text col-4">{{ result.player9 }} </p>
+            <p class="card-text col-4" id="field7">{{ results.fieldTime_8 }} </p>
+            <p class="card-text col-4 cap">{{ results.player9 }} </p>
             <p class="card-text col-4" id="bench8"> </p>
-            <p class="card-text col-4" id="field8">{{ result.fieldTime_9 }} </p>
-            <p class="card-text col-4">{{ result.player10 }} </p>
+            <p class="card-text col-4" id="field8">{{ results.fieldTime_9 }} </p>
+            <p class="card-text col-4 cap">{{ results.player10 }} </p>
             <p class="card-text col-4" id="bench9"> </p>
-            <p class="card-text col-4" id="field9">{{ result.fieldTime_10 }} </p>
-            <p class="card-text col-4">{{ result.player11 }} </p>
+            <p class="card-text col-4" id="field9">{{ results.fieldTime_10 }} </p>
+            <p class="card-text col-4 cap">{{ results.player11 }} </p>
             <p class="card-text col-4" id="bench10"> </p>
-            <p class="card-text col-4" id="field10">{{ result.fieldTime_11 }} </p>
-            <p class="card-text col-4">{{ result.player12 }} </p>
+            <p class="card-text col-4" id="field10">{{ results.fieldTime_11 }} </p>
+            <p class="card-text col-4 cap">{{ results.player12 }} </p>
             <p class="card-text col-4" id="bench11"> </p>
-            <p class="card-text col-4" id="field11">{{ result.fieldTime_12 }} </p>
-            <p class="card-text col-4">{{ result.player13 }} </p>
+            <p class="card-text col-4" id="field11">{{ results.fieldTime_12 }} </p>
+            <p class="card-text col-4 cap">{{ results.player13 }} </p>
             <p class="card-text col-4" id="bench12"> </p>
-            <p class="card-text col-4" id="field12">{{ result.fieldTime_13 }} </p>
-            <p class="card-text col-4">{{ result.player14 }} </p>
+            <p class="card-text col-4" id="field12">{{ results.fieldTime_13 }} </p>
+            <p class="card-text col-4 cap">{{ results.player14 }} </p>
             <p class="card-text col-4" id="bench13"> </p>
-            <p class="card-text col-4" id="field13">{{ result.fieldTime_14 }} </p>
-            <p class="card-text col-4">{{ result.player15 }} </p>
+            <p class="card-text col-4" id="field13">{{ results.fieldTime_14 }} </p>
+            <p class="card-text col-4 cap">{{ results.player15 }} </p>
             <p class="card-text col-4" id="bench14"> </p>
-            <p class="card-text col-4" id="field14">{{ result.fieldTime_15 }} </p>
-            <p class="card-text col-4">{{ result.player16 }} </p>
+            <p class="card-text col-4" id="field14">{{ results.fieldTime_15 }} </p>
+            <p class="card-text col-4 cap">{{ results.player16 }} </p>
             <p class="card-text col-4" id="bench15"> </p>
-            <p class="card-text col-4" id="field15">{{ result.fieldTime_16 }} </p>
+            <p class="card-text col-4" id="field15">{{ results.fieldTime_16 }} </p>
 
+        </div>
+
+        <!-- Button trigger modal -->
+        <div type="button" class="deleteteam col-6 btn bold m-3 boxshadow" data-bs-toggle="modal" data-bs-target="#test{{results._id}}">
+            <ion-icon name="trash-outline"></ion-icon> Delete
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="test{{results._id}}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content text-black">
+                    <div class="modal-header">
+                        <h5 class="modal-title modals">Delete Team</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body modals">
+                        <p>Are you sure you want to delete this result ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{{ url_for('deleteResults', results_id=results._id) }}" class="btn submit-btn base-btn remove-btn center">
+                            <h6>
+                                <ion-icon name="trash-outline"></ion-icon> Delete
+                            </h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% endfor %}

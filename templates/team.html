@@ -10,14 +10,14 @@
             <h4>{{ team.teamName }}</h4>
         </div>
         <div class="col-4 text-center accord-ion-item">
-            <a class="edit-team" href=" {{ url_for('editteam', team_id=team._id) }}">
-                <ion-icon name="create-outline"></ion-icon> edit
+            <a class="edit-team " href=" {{ url_for('editteam', team_id=team._id) }}">
+                <ion-icon name="create-outline"></ion-icon> Edit
             </a>
         </div>
         <div class="col-4 text-center accord-ion-item">
 
             <!-- Button trigger modal -->
-            <div type="button" class="deleteteam" data-bs-toggle="modal" data-bs-target="#test{{team._id}}">
+            <div type="button" class="deleteteam " data-bs-toggle="modal" data-bs-target="#test{{team._id}}">
                 <ion-icon name="trash-outline"></ion-icon> Delete
             </div>
 
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-4 text-center accord-ion accord-ion-item">
-            <ion-icon name="eye-outline"></ion-icon> show
+            <ion-icon name="eye-outline"></ion-icon> Show
 
         </div>
         <div class="col-12 panel">

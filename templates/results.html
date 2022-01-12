@@ -9,11 +9,11 @@
         <div class="card-body row g-0">
             <h5 class="card-title col-6">Team: {{ results.teamName }}</h5>
             <h5 class="card-title col-6"> On: {{ results.datum }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted col-5 text-center"> Total match time:</h6>
+            <h6 class="card-subtitle mb-2 text-muted col-5 text-center"> Total match-time:</h6>
             <h6 class="card-subtitle mb-2 text-muted col-7 text-center" id="overall-time">{{ results.overallTime }}</h6>
 
             <!-- Button trigger modal -->
-            <div type="button" class="deleteteam col-6 btn bold" data-bs-toggle="modal" data-bs-target="#test{{results._id}}">
+            <div type="button" class="deleteteam col-4 btn bold offset-1 boxshadow" data-bs-toggle="modal" data-bs-target="#test{{results._id}}">
                 <ion-icon name="trash-outline"></ion-icon> Delete
             </div>
 
@@ -40,8 +40,10 @@
                 </div>
             </div>
 
-            <div class="col-6 btn results-btn bold">
-                <a href="{{ url_for('resultsind', results_id=results._id) }}"><ion-icon name="eye-outline"></ion-icon> see results</a>
+            <div class="col-4  btn results-btn bold offset-1 boxshadow">
+                <a href="{{ url_for('resultsind', results_id=results._id) }}">
+                    <ion-icon name="eye-outline"></ion-icon> Results
+                </a>
             </div>
 
         </div>

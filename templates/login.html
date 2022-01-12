@@ -18,7 +18,7 @@
                         <input type="password" name="password" class="form-control validate" id="password" minlength="6" maxlength="15" pattern="^[a-zA-Z0-9]{6,15}$" required>
                     </div>
                     <br>
-                    <button type="submit" class="btn submit-btn bold">
+                    <button type="submit" class="btn submit-btn bold boxshadow">
                         <ion-icon name="enter-outline"></ion-icon> Login
                     </button>
                 </div>
@@ -31,6 +31,10 @@
                     <p class="text-center">
                         New Here?
                         <a href="{{ url_for('register') }}" class="center">Register Account</a>
+                    </p>
+                    <p class="text-center">
+                        Forgot password?
+                        <a href="{{ url_for('passwordrecovery') }}" class="center">Password recovery</a>
                     </p>
                 </div>
             </div>
