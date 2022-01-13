@@ -176,7 +176,7 @@ body {
 
 .login {
     position: relative;
-    height: 60px;
+
 }
 
 .login a {
@@ -185,10 +185,34 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: end;
-    width: 100%;
     text-align: center;
     text-decoration: none;
     color: white;
+    background: rgba(255, 255, 255, 0.5);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    color: black;
+    margin: 2px 0 0 2px;
+    background: radial-gradient(circle at 25px 25px, white, grey);
+    border: 1px solid transparent;
+
+
+}
+
+@media only screen and (min-width: 768px) {
+    .login a {
+        margin-left: 60%;
+    }
+}
+
+.login a span {
+    font-size: 10px;
+    line-height: 24px;
+}
+
+.login a span .login-icon {
+    font-size: 1.8em;
 }
 
 .navigation {
