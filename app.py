@@ -124,7 +124,9 @@ def login():
 def stopwatch():
     userTeam = mongo.db.teams.find(
         {"created_by": session["user"]})
-    return render_template("stopwatch.html", userTeam=userTeam)
+    teamResults = mongo.db.results.find(
+        {"created_by": session["user"]})
+    return render_template("stopwatch.html", userTeam=userTeam, teamResults=teamResults)
 
 
 @app.route("/stopwatchClock/<team_id>", methods=["GET", "POST"])
@@ -344,10 +346,11 @@ def recoverymail():
         print(existing_user)
         if existing_user:
 
-            msg = Message('hey there',
-            sender='infobenchtimer@gmail.com',
-            recipients=['pjdijxhoorn@hotmail.com'],
-            body="this is the body text")
+            msg = Message()
+            msg.subject = "reset pass"
+            msg.sender = 'infobenchtimer@gmail.com'
+            msg.recipients = ['pjdijxhoorn@hotmail.com']
+            msg.html = "<h2>We are sorry to hear you lost your password </h2>"
 
             print(msg)
             mail.send(msg)
