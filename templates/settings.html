@@ -1,20 +1,22 @@
 {% extends "base.html"%}
 {% block content %}
-<h2 class="text-center text-black">Settings</h2>
+<div class="content-block">
+    <h2 class="text-center text-black">Settings</h2>
 
-<div class="card col-10 offset-1">
-    <p class="main-explanation px-3 pt-3 text-black bold">
-        User details
-    </p>
-    <p class="main-explanation px-3 text-black">Username: {{user.username}}</p>
-    <p class="main-explanation px-3 text-black">Email: {{user.email}} </p>
-    <a class="edit-password btn m-3 boxshadow" href=" {{ url_for('passwordsettings') }}">Change password</a>
-</div>
+    <div class="card col-10 offset-1">
+        <p class="main-explanation px-3 pt-3 text-black bold">
+            User details
+        </p>
+        <p class="main-explanation px-3 text-black">Username: {{user.username}}</p>
+        <p class="main-explanation px-3 text-black">Email: {{user.email}} </p>
+        <a class="edit-password btn m-3 boxshadow" href=" {{ url_for('passwordsettings') }}">Change password</a>
+    </div>
 
-<div class="text-center">
-    <h4>About</h4>
-    <p>Author: Paul Dijxhoorn</p>
-    <p>production year: 2022</p>
-    <p>Version: 2.0</p>
+    <div class="text-center">
+        <h4>About</h4>
+        <p>Author: Paul Dijxhoorn</p>
+        <p>production year: 2022</p>
+        <p>Version: 2.0</p>
+    </div>
 </div>
 {% endblock %}

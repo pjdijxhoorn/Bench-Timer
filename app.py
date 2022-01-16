@@ -102,6 +102,7 @@ def login():
             if check_password_hash(
                                 existing_user["password"],
                                 request.form.get("password")):
+
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")), 'success')
@@ -122,174 +123,208 @@ def login():
 
 @app.route("/stopwatch", methods=["GET", "POST"])
 def stopwatch():
-    userTeam = mongo.db.teams.find(
-        {"created_by": session["user"]})
-    teamResults = mongo.db.results.find(
-        {"created_by": session["user"]})
-    return render_template("stopwatch.html", userTeam=userTeam, teamResults=teamResults)
+    if session.get("user") is not None:
+        userTeam = mongo.db.teams.find(
+            {"created_by": session["user"]})
+        teamResults = mongo.db.results.find(
+            {"created_by": session["user"]})
+        return render_template("stopwatch.html", userTeam=userTeam, teamResults=teamResults)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/stopwatchClock/<team_id>", methods=["GET", "POST"])
 def stopwatchClock(team_id):
-    userTeam = mongo.db.teams.find(
-        {"created_by": session["user"]})
-    date = datetime.now()
+    if session.get("user") is not None:
+        userTeam = mongo.db.teams.find(
+            {"created_by": session["user"]})
+        date = datetime.now()
 
-    if request.method == "POST":
-        result = {
-            "created_by": session["user"],
-            "overallTime": request.form.get("timer_33"),
-            "datum": date.strftime("%d/%m/%y"),
-            "teamName": request.form.get("teamName"),
-            "fieldTime_1": request.form.get("timer_2"),
-            "fieldTime_2": request.form.get("timer_4"),
-            "fieldTime_3": request.form.get("timer_6"),
-            "fieldTime_4": request.form.get("timer_8"),
-            "fieldTime_5": request.form.get("timer_10"),
-            "fieldTime_6": request.form.get("timer_12"),
-            "fieldTime_7": request.form.get("timer_14"),
-            "fieldTime_8": request.form.get("timer_16"),
-            "fieldTime_9": request.form.get("timer_18"),
-            "fieldTime_10": request.form.get("timer_20"),
-            "fieldTime_11": request.form.get("timer_22"),
-            "fieldTime_12": request.form.get("timer_24"),
-            "fieldTime_13": request.form.get("timer_26"),
-            "fieldTime_14": request.form.get("timer_28"),
-            "fieldTime_15": request.form.get("timer_30"),
-            "fieldTime_16": request.form.get("timer_32"),
-            "player1": request.form.get("player1"),
-            "player2": request.form.get("player2"),
-            "player3": request.form.get("player3"),
-            "player4": request.form.get("player4"),
-            "player5": request.form.get("player5"),
-            "player6": request.form.get("player6"),
-            "player7": request.form.get("player7"),
-            "player8": request.form.get("player8"),
-            "player9": request.form.get("player9"),
-            "player10": request.form.get("player10"),
-            "player11": request.form.get("player11"),
-            "player12": request.form.get("player12"),
-            "player13": request.form.get("player13"),
-            "player14": request.form.get("player14"),
-            "player15": request.form.get("player15"),
-            "player16": request.form.get("player16"),
-        }
+        if request.method == "POST":
+            result = {
+                "created_by": session["user"],
+                "overallTime": request.form.get("timer_33"),
+                "datum": date.strftime("%d/%m/%y"),
+                "teamName": request.form.get("teamName"),
+                "fieldTime_1": request.form.get("timer_2"),
+                "fieldTime_2": request.form.get("timer_4"),
+                "fieldTime_3": request.form.get("timer_6"),
+                "fieldTime_4": request.form.get("timer_8"),
+                "fieldTime_5": request.form.get("timer_10"),
+                "fieldTime_6": request.form.get("timer_12"),
+                "fieldTime_7": request.form.get("timer_14"),
+                "fieldTime_8": request.form.get("timer_16"),
+                "fieldTime_9": request.form.get("timer_18"),
+                "fieldTime_10": request.form.get("timer_20"),
+                "fieldTime_11": request.form.get("timer_22"),
+                "fieldTime_12": request.form.get("timer_24"),
+                "fieldTime_13": request.form.get("timer_26"),
+                "fieldTime_14": request.form.get("timer_28"),
+                "fieldTime_15": request.form.get("timer_30"),
+                "fieldTime_16": request.form.get("timer_32"),
+                "player1": request.form.get("player1"),
+                "player2": request.form.get("player2"),
+                "player3": request.form.get("player3"),
+                "player4": request.form.get("player4"),
+                "player5": request.form.get("player5"),
+                "player6": request.form.get("player6"),
+                "player7": request.form.get("player7"),
+                "player8": request.form.get("player8"),
+                "player9": request.form.get("player9"),
+                "player10": request.form.get("player10"),
+                "player11": request.form.get("player11"),
+                "player12": request.form.get("player12"),
+                "player13": request.form.get("player13"),
+                "player14": request.form.get("player14"),
+                "player15": request.form.get("player15"),
+                "player16": request.form.get("player16"),
+            }
 
-        mongo.db.results.insert(result)
-        flash("The results are stored", 'success')
-    team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
-    return render_template(
-                            "stopwatchClock.html",
-                            userTeam=userTeam,
-                            team=team)
+            mongo.db.results.insert(result)
+            flash("The results are stored", 'success')
+        team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
+        return render_template(
+                                "stopwatchClock.html",
+                                userTeam=userTeam,
+                                team=team)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/team", methods=["GET", "POST"])
 def team():
-    if request.method == "POST":
-        # gets all the info from the form and creates a team
-        newteam = {
-            "teamName": request.form.get("teamName"),
-            "player1": request.form.get("player1"),
-            "player2": request.form.get("player2"),
-            "player3": request.form.get("player3"),
-            "player4": request.form.get("player4"),
-            "player5": request.form.get("player5"),
-            "player6": request.form.get("player6"),
-            "player7": request.form.get("player7"),
-            "player8": request.form.get("player8"),
-            "player9": request.form.get("player9"),
-            "player10": request.form.get("player10"),
-            "player11": request.form.get("player11"),
-            "player12": request.form.get("player12"),
-            "player13": request.form.get("player13"),
-            "player14": request.form.get("player14"),
-            "player15": request.form.get("player15"),
-            "player16": request.form.get("player16"),
-            "created_by": session["user"]
-        }
+    if session.get("user") is not None:
+        if request.method == "POST":
+            # gets all the info from the form and creates a team
+            newteam = {
+                "teamName": request.form.get("teamName"),
+                "player1": request.form.get("player1"),
+                "player2": request.form.get("player2"),
+                "player3": request.form.get("player3"),
+                "player4": request.form.get("player4"),
+                "player5": request.form.get("player5"),
+                "player6": request.form.get("player6"),
+                "player7": request.form.get("player7"),
+                "player8": request.form.get("player8"),
+                "player9": request.form.get("player9"),
+                "player10": request.form.get("player10"),
+                "player11": request.form.get("player11"),
+                "player12": request.form.get("player12"),
+                "player13": request.form.get("player13"),
+                "player14": request.form.get("player14"),
+                "player15": request.form.get("player15"),
+                "player16": request.form.get("player16"),
+                "created_by": session["user"]
+            }
 
-        # inserts the team
-        mongo.db.teams.insert_one(newteam)
-        flash("team Successfully Added", 'success')
-        return redirect(url_for("team"))
+            # inserts the team
+            mongo.db.teams.insert_one(newteam)
+            flash("team Successfully Added", 'success')
+            return redirect(url_for("team"))
 
-    userTeam = mongo.db.teams.find(
-        {"created_by": session["user"]})
-
-    return render_template("team.html", userTeam=userTeam)
+        userTeam = mongo.db.teams.find(
+            {"created_by": session["user"]})
+        return render_template("team.html", userTeam=userTeam)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/editteam/<team_id>", methods=["GET", "POST"])
 def editteam(team_id):
-    if request.method == "POST":
-        # gets a recipe and takes all info /changes from the form and saves it
-        editedteam = {
-            "teamName": request.form.get("teamName"),
-            "created_by": session["user"],
-            "player1": request.form.get("player1"),
-            "player2": request.form.get("player2"),
-            "player3": request.form.get("player3"),
-            "player4": request.form.get("player4"),
-            "player5": request.form.get("player5"),
-            "player6": request.form.get("player6"),
-            "player7": request.form.get("player7"),
-            "player8": request.form.get("player8"),
-            "player9": request.form.get("player9"),
-            "player10": request.form.get("player10"),
-            "player11": request.form.get("player11"),
-            "player12": request.form.get("player12"),
-            "player13": request.form.get("player13"),
-            "player14": request.form.get("player14"),
-            "player15": request.form.get("player15"),
-            "player16": request.form.get("player16")
+    if session.get("user") is not None:
+        if request.method == "POST":
+            # gets a recipe and takes all info /changes from the form and saves it
+            editedteam = {
+                "teamName": request.form.get("teamName"),
+                "created_by": session["user"],
+                "player1": request.form.get("player1"),
+                "player2": request.form.get("player2"),
+                "player3": request.form.get("player3"),
+                "player4": request.form.get("player4"),
+                "player5": request.form.get("player5"),
+                "player6": request.form.get("player6"),
+                "player7": request.form.get("player7"),
+                "player8": request.form.get("player8"),
+                "player9": request.form.get("player9"),
+                "player10": request.form.get("player10"),
+                "player11": request.form.get("player11"),
+                "player12": request.form.get("player12"),
+                "player13": request.form.get("player13"),
+                "player14": request.form.get("player14"),
+                "player15": request.form.get("player15"),
+                "player16": request.form.get("player16")
 
-        }
-        mongo.db.teams.update({"_id": ObjectId(team_id)}, editedteam)
-        flash("Team Successfully edited", 'success')
-        return redirect(url_for('team', username=session['user']))
+            }
+            mongo.db.teams.update({"_id": ObjectId(team_id)}, editedteam)
+            flash("Team Successfully edited", 'success')
+            return redirect(url_for('team', username=session['user']))
 
-    team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
-    return render_template(
-        "editteam.html", team=team)
+        team = mongo.db.teams.find_one({"_id": ObjectId(team_id)})
+        return render_template(
+            "editteam.html", team=team)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/deleteTeam/<team_id>", methods=["GET", "POST"])
 def deleteTeam(team_id):
-    # deletes recipe
-    mongo.db.teams.remove({"_id": ObjectId(team_id)})
-    flash("team succesfully deleted", 'success')
-    return redirect(url_for('team', username=session['user']))
+    if session.get("user") is not None:
+        # deletes recipe
+        mongo.db.teams.remove({"_id": ObjectId(team_id)})
+        flash("team succesfully deleted", 'success')
+        return redirect(url_for('team', username=session['user']))
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/results")
 def results():
-    userResults = mongo.db.results.find(
-        {"created_by": session["user"]})
-    return render_template("results.html", userResults=userResults)
+    if session.get("user") is not None:
+        userResults = mongo.db.results.find(
+            {"created_by": session["user"]})
+        return render_template("results.html", userResults=userResults)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/resultsind/<results_id>", methods=["GET", "POST"])
 def resultsind(results_id):
-
-    results = mongo.db.results.find({"_id": ObjectId(results_id)})
-    return render_template("resultsind.html", results=results)
+    if session.get("user") is not None:
+        results = mongo.db.results.find({"_id": ObjectId(results_id)})
+        return render_template("resultsind.html", results=results)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/deleteResults/<results_id>", methods=["GET", "POST"])
 def deleteResults(results_id):
-    # deletes recipe
-    mongo.db.results.remove({"_id": ObjectId(results_id)})
-    flash("results successfully deleted", 'success')
-    return redirect(url_for('results', username=session['user']))
+    if session.get("user") is not None:
+        # deletes recipe
+        mongo.db.results.remove({"_id": ObjectId(results_id)})
+        flash("results successfully deleted", 'success')
+        return redirect(url_for('results', username=session['user']))
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/settings")
 def settings():
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    user = mongo.db.users.find_one({"username": username})
-    return render_template("settings.html", user=user)
+    if session.get("user") is not None:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        user = mongo.db.users.find_one({"username": username})
+        return render_template("settings.html", user=user)
+    else:
+        flash("You need to be logged in to see this content", 'error')
+        return render_template("login.html")
 
 
 @app.route("/logout")
@@ -330,11 +365,11 @@ def passwordsettings():
         "passwordsettings.html", user=user)
 
 
-@app.route("/passwordrecovery")
-def passwordrecovery():
+@app.route("/pass_reset_request")
+def pass_reset_request():
 
     return render_template(
-        "passwordrecovery.html")
+        "pass_reset_request.html")
 
 
 @app.route("/recoverymail", methods=["GET", "POST"])

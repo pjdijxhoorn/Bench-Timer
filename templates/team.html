@@ -1,168 +1,174 @@
 {% extends "base.html"%}
 {% block content %}
+<div class="content-block">
+    <h2 class="text-center text-black">Teams</h2>
 
-<h2 class="text-center text-black">Teams</h2>
-
-<div class="card m-3">
-    {% for team in userTeam %}
-    <div class="row g-0 accord-ion-block mx-2">
-        <div class="col-12 text-center">
-            <h4>{{ team.teamName }}</h4>
-        </div>
-        <div class="col-4 text-center accord-ion-item">
-            <a class="edit-team " href=" {{ url_for('editteam', team_id=team._id) }}">
-                <ion-icon name="create-outline"></ion-icon> Edit
-            </a>
-        </div>
-        <div class="col-4 text-center accord-ion-item">
-
-            <!-- Button trigger modal -->
-            <div type="button" class="deleteteam " data-bs-toggle="modal" data-bs-target="#test{{team._id}}">
-                <ion-icon name="trash-outline"></ion-icon> Delete
+    <div class="card m-3">
+        {% for team in userTeam %}
+        <div class="row g-0 accord-ion-block mx-2">
+            <div class="col-12 text-center">
+                <h4>{{ team.teamName }}</h4>
+            </div>
+            <div class="col-4 text-center ">
+                <div class="accord-ion-item">
+                    <a class="edit-team " href=" {{ url_for('editteam', team_id=team._id) }}">
+                        <ion-icon name="create-outline"></ion-icon> Edit
+                    </a>
+                </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="test{{team._id}}" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog  absolute">
-                    <div class="modal-content text-black">
-                        <div class="modal-header">
-                            <h5 class="modal-title modals">Delete Team</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body modals">
-                            <p>Are you sure you want to delete this team ? {{team.teamName}}</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="{{ url_for('deleteTeam', team_id=team._id) }}" class="btn submit-btn base-btn remove-btn center">
-                                <h6>
-                                    <ion-icon name="trash-outline"></ion-icon> Delete
-                                </h6>
-                            </a>
+            <div class="col-4 text-center ">
+                <div class="accord-ion-item">
+                    <!-- Button trigger modal -->
+                    <div type="button" class="deleteteam " data-bs-toggle="modal" data-bs-target="#test{{team._id}}">
+                        <ion-icon name="trash-outline"></ion-icon> Delete
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="test{{team._id}}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog  absolute">
+                            <div class="modal-content text-black">
+                                <div class="modal-header">
+                                    <h5 class="modal-title modals">Delete Team</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body modals">
+                                    <p>Are you sure you want to delete this team ? {{team.teamName}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <a href="{{ url_for('deleteTeam', team_id=team._id) }}" class="btn submit-btn base-btn remove-btn center">
+                                        <h6>
+                                            <ion-icon name="trash-outline"></ion-icon> Delete
+                                        </h6>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-4 text-center accord-ion ">
+                <div class="accord-ion-item">
+                    <ion-icon name="eye-outline"></ion-icon> Show
+                </div>
+            </div>
+            <div class="col-12 panel">
+                <div class="row g-0 text-center">
+                    <p class="col-6 cap">{{team.player1}}</p>
+                    <p class="col-6 cap">{{team.player2}}</p>
+                    <p class="col-6 cap">{{team.player3}}</p>
+                    <p class="col-6 cap">{{team.player4}}</p>
+                    <p class="col-6 cap">{{team.player5}}</p>
+                    <p class="col-6 cap">{{team.player6}}</p>
+                    <p class="col-6 cap">{{team.player7}}</p>
+                    <p class="col-6 cap">{{team.player8}}</p>
+                    <p class="col-6 cap">{{team.player9}}</p>
+                    <p class="col-6 cap">{{team.player10}}</p>
+                    <p class="col-6 cap">{{team.player11}}</p>
+                    <p class="col-6 cap">{{team.player12}}</p>
+                    <p class="col-6 cap">{{team.player13}}</p>
+                    <p class="col-6 cap">{{team.player14}}</p>
+                    <p class="col-6 cap">{{team.player15}}</p>
+                    <p class="col-6 cap">{{team.player16}}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-4 text-center accord-ion accord-ion-item">
-            <ion-icon name="eye-outline"></ion-icon> Show
+        {% endfor %}
+    </div>
 
-        </div>
-        <div class="col-12 panel">
-            <div class="row g-0 text-center">
-                <p class="col-6 cap">{{team.player1}}</p>
-                <p class="col-6 cap">{{team.player2}}</p>
-                <p class="col-6 cap">{{team.player3}}</p>
-                <p class="col-6 cap">{{team.player4}}</p>
-                <p class="col-6 cap">{{team.player5}}</p>
-                <p class="col-6 cap">{{team.player6}}</p>
-                <p class="col-6 cap">{{team.player7}}</p>
-                <p class="col-6 cap">{{team.player8}}</p>
-                <p class="col-6 cap">{{team.player9}}</p>
-                <p class="col-6 cap">{{team.player10}}</p>
-                <p class="col-6 cap">{{team.player11}}</p>
-                <p class="col-6 cap">{{team.player12}}</p>
-                <p class="col-6 cap">{{team.player13}}</p>
-                <p class="col-6 cap">{{team.player14}}</p>
-                <p class="col-6 cap">{{team.player15}}</p>
-                <p class="col-6 cap">{{team.player16}}</p>
+    <h2 class="text-center mt-3">
+        <ion-icon name="add-circle-outline"></ion-icon> add new team
+    </h2>
+
+    <div class="row g-0 form-block">
+        <div class="card col-10 offset-1">
+            <div class="card-body">
+                <form class="col-12 row justify-content-center g-0 form" method="POST" action="{{ url_for('team') }}">
+                    <div class="col-lg-6 col-sm-12">
+                        <!--teamname-->
+                        <div>
+                            <label for="teamName" class="form-label">Team</label>
+                            <input type="text" name="teamName" class="form-control validate" id="teamName" required>
+                        </div>
+                        <!--playersnames-->
+                        <div>
+                            <label for="player1" class="form-label">Player 1</label>
+                            <input type="text" name="player1" class="form-control validate" id="player1" placeholder="Player 1" required>
+                        </div>
+                        <div>
+                            <label for="player2" class="form-label">Player 2</label>
+                            <input type="text" name="player2" class="form-control validate" id="player2" placeholder="Player 2">
+                        </div>
+                        <div>
+                            <label for="player3" class="form-label">Player 3</label>
+                            <input type="text" name="player3" class="form-control validate" id="player3" placeholder="Player 3">
+                        </div>
+                        <div>
+                            <label for="player4" class="form-label">Player 4</label>
+                            <input type="text" name="player4" class="form-control validate" id="player4" placeholder="Player 4">
+                        </div>
+                        <div>
+                            <label for="player5" class="form-label">Player 5</label>
+                            <input type="text" name="player5" class="form-control validate" id="player5" placeholder="Player 5">
+                        </div>
+                        <div>
+                            <label for="player6" class="form-label">Player 6</label>
+                            <input type="text" name="player6" class="form-control validate" id="player6" placeholder="Player 6">
+                        </div>
+                        <div>
+                            <label for="player7" class="form-label">Player 7</label>
+                            <input type="text" name="player7" class="form-control validate" id="player7" placeholder="Player 7">
+                        </div>
+                        <div>
+                            <label for="player8" class="form-label">Player 8</label>
+                            <input type="text" name="player8" class="form-control validate" id="player8" placeholder="Player 8">
+                        </div>
+                        <div>
+                            <label for="player9" class="form-label">Player 9</label>
+                            <input type="text" name="player9" class="form-control validate" id="player9" placeholder="Player 9">
+                        </div>
+                        <div>
+                            <label for="player10" class="form-label">Player 10</label>
+                            <input type="text" name="player10" class="form-control validate" id="player10" placeholder="Player 10">
+                        </div>
+                        <div>
+                            <label for="player11" class="form-label">Player 11</label>
+                            <input type="text" name="player11" class="form-control validate" id="player11" placeholder="Player 11">
+                        </div>
+                        <div>
+                            <label for="player12" class="form-label">Player 12</label>
+                            <input type="text" name="player12" class="form-control validate" id="player12" placeholder="Player 12">
+                        </div>
+                        <div>
+                            <label for="player13" class="form-label">Player 13</label>
+                            <input type="text" name="player13" class="form-control validate" id="player13" placeholder="Player 13">
+                        </div>
+                        <div>
+                            <label for="player14" class="form-label">Player 14</label>
+                            <input type="text" name="player14" class="form-control validate" id="player14" placeholder="Player 14">
+                        </div>
+                        <div>
+                            <label for="player15" class="form-label">Player 15</label>
+                            <input type="text" name="player15" class="form-control validate" id="player15" placeholder="Player 15">
+                        </div>
+                        <div>
+                            <label for="player16" class="form-label">Player 16</label>
+                            <input type="text" name="player16" class="form-control validate" id="player16" placeholder="Player 16">
+                        </div>
+
+
+                        <br>
+                        <button type="submit" class="btn submit-btn bold">
+                            Submit
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    {% endfor %}
+
 </div>
-
-<h2 class="text-center mt-3">
-    <ion-icon name="add-circle-outline"></ion-icon> add new team
-</h2>
-
-<div class="row g-0 form-block">
-    <div class="card col-10 offset-1">
-        <div class="card-body">
-            <form class="col-12 row justify-content-center g-0 form" method="POST" action="{{ url_for('team') }}">
-                <div class="col-lg-6 col-sm-12">
-                    <!--teamname-->
-                    <div>
-                        <label for="teamName" class="form-label">Team</label>
-                        <input type="text" name="teamName" class="form-control validate" id="teamName" required>
-                    </div>
-                    <!--playersnames-->
-                    <div>
-                        <label for="player1" class="form-label">Player 1</label>
-                        <input type="text" name="player1" class="form-control validate" id="player1" placeholder="Player 1" required>
-                    </div>
-                    <div>
-                        <label for="player2" class="form-label">Player 2</label>
-                        <input type="text" name="player2" class="form-control validate" id="player2" placeholder="Player 2">
-                    </div>
-                    <div>
-                        <label for="player3" class="form-label">Player 3</label>
-                        <input type="text" name="player3" class="form-control validate" id="player3" placeholder="Player 3">
-                    </div>
-                    <div>
-                        <label for="player4" class="form-label">Player 4</label>
-                        <input type="text" name="player4" class="form-control validate" id="player4" placeholder="Player 4">
-                    </div>
-                    <div>
-                        <label for="player5" class="form-label">Player 5</label>
-                        <input type="text" name="player5" class="form-control validate" id="player5" placeholder="Player 5">
-                    </div>
-                    <div>
-                        <label for="player6" class="form-label">Player 6</label>
-                        <input type="text" name="player6" class="form-control validate" id="player6" placeholder="Player 6">
-                    </div>
-                    <div>
-                        <label for="player7" class="form-label">Player 7</label>
-                        <input type="text" name="player7" class="form-control validate" id="player7" placeholder="Player 7">
-                    </div>
-                    <div>
-                        <label for="player8" class="form-label">Player 8</label>
-                        <input type="text" name="player8" class="form-control validate" id="player8" placeholder="Player 8">
-                    </div>
-                    <div>
-                        <label for="player9" class="form-label">Player 9</label>
-                        <input type="text" name="player9" class="form-control validate" id="player9" placeholder="Player 9">
-                    </div>
-                    <div>
-                        <label for="player10" class="form-label">Player 10</label>
-                        <input type="text" name="player10" class="form-control validate" id="player10" placeholder="Player 10">
-                    </div>
-                    <div>
-                        <label for="player11" class="form-label">Player 11</label>
-                        <input type="text" name="player11" class="form-control validate" id="player11" placeholder="Player 11">
-                    </div>
-                    <div>
-                        <label for="player12" class="form-label">Player 12</label>
-                        <input type="text" name="player12" class="form-control validate" id="player12" placeholder="Player 12">
-                    </div>
-                    <div>
-                        <label for="player13" class="form-label">Player 13</label>
-                        <input type="text" name="player13" class="form-control validate" id="player13" placeholder="Player 13">
-                    </div>
-                    <div>
-                        <label for="player14" class="form-label">Player 14</label>
-                        <input type="text" name="player14" class="form-control validate" id="player14" placeholder="Player 14">
-                    </div>
-                    <div>
-                        <label for="player15" class="form-label">Player 15</label>
-                        <input type="text" name="player15" class="form-control validate" id="player15" placeholder="Player 15">
-                    </div>
-                    <div>
-                        <label for="player16" class="form-label">Player 16</label>
-                        <input type="text" name="player16" class="form-control validate" id="player16" placeholder="Player 16">
-                    </div>
-
-
-                    <br>
-                    <button type="submit" class="btn submit-btn bold">
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <script src="/static/js/accordion.js"></script>
 
 {% endblock %}

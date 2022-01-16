@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="content-block">
+    <h2 class="text-center text-black">Password recovery</h2>
+
+    <div class="row g-0 form-block">
+        <div class="card col-10 offset-1">
+            <div class="card-body">
+                <form class="col-12 row justify-content-center g-0 form" method="POST" action="{{ url_for('recoverymail') }}">
+                    <div class="col-lg-6 col-sm-12">
+
+                        <!--Username-->
+                        <div>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control validate" id="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                        </div>
+
+                        <div>
+                            <label for="email" class="form-label">Email address:</label>
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" required>
+                        </div>
+                        <br>
+                        <p>An email will be send with a link to change your password </p>
+                        <button type="submit" class="btn submit-btn bold boxshadow">
+                            <ion-icon name="enter-outline"></ion-icon> submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

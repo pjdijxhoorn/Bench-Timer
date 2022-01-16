@@ -1,78 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
-<h2 class="text-center">Registration Page</h2>
-<br>
-<div class="row g-0 form-block">
-    <div class="card col-10 offset-1">
-        <div class="card-body">
-            <form class="col-12 row justify-content-center form g-0" method="POST" action="{{ url_for('register') }}">
-                <div class="col-lg-6 col-sm-12 g-0">
-                    <!--Email-->
-                    <div>
-                        <label for="email" class="form-label">Email address:</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="email" required>
-                    </div>
+<div class="content-block">
+    <h2 class="text-center">Registration Page</h2>
+    <br>
+    <div class="row g-0 form-block">
+        <div class="card col-10 offset-1">
+            <div class="card-body">
+                <form class="col-12 row justify-content-center form g-0" method="POST" action="{{ url_for('register') }}">
+                    <div class="col-lg-6 col-sm-12 g-0">
+                        <!--Email-->
+                        <div>
+                            <label for="email" class="form-label">Email address:</label>
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" required>
+                        </div>
 
-                    <!--Username-->
-                    <div>
-                        <label for="username" class="form-label">
-                            Username:*
-                        </label>
-                        <input type="text" name="username" class="form-control validate" id="username" aria-describedby="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                        <div class="item char_5 row g-0" id="char_5">
-                            <div>
-                                <ion-icon name="checkmark-circle"></ion-icon>
+                        <!--Username-->
+                        <div>
+                            <label for="username" class="form-label">
+                                Username:*
+                            </label>
+                            <input type="text" name="username" class="form-control validate" id="username" aria-describedby="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                            <div class="item char_5 row g-0" id="char_5">
+                                <div>
+                                    <ion-icon name="checkmark-circle"></ion-icon>
 
-                                Must Contain between 5 and 15 characters.
+                                    Must Contain between 5 and 15 characters.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <!--Password-->
-                    <div>
-                        <label for="password" class="form-label">Password:*</label>
-                        <input type="password" name="password" class="form-control validate" id="password" minlength="6" maxlength="15" pattern="^[a-zA-Z0-9]{6,15}$" required>
-                        <div class="item char_6 row g-0" id="char_6">
-                            <div>
-                                <ion-icon name="checkmark-circle"></ion-icon>
-                                Must Contain between 6 and 15 characters.
+                        <br>
+                        <!--Password-->
+                        <div>
+                            <label for="password" class="form-label">Password:*</label>
+                            <input type="password" name="password" class="form-control validate" id="password" minlength="6" maxlength="15" pattern="^[a-zA-Z0-9]{6,15}$" required>
+                            <div class="item char_6 row g-0" id="char_6">
+                                <div>
+                                    <ion-icon name="checkmark-circle"></ion-icon>
+                                    Must Contain between 6 and 15 characters.
+                                </div>
+                            </div>
+                            <div class="item number" id="number">
+                                <ion-icon name="checkmark-circle"></ion-icon> Must Contain 1 number.
+                            </div>
+                            <div class="item letter" id="letter">
+                                <ion-icon name="checkmark-circle"></ion-icon> Must Contain 1 letter.
                             </div>
                         </div>
-                        <div class="item number" id="number">
-                            <ion-icon name="checkmark-circle"></ion-icon> Must Contain 1 number.
+                        <br>
+                        <!--Password confirm-->
+                        <div>
+                            <label for="passwordconfirm" class="form-label">Confirm password:*</label>
+                            <input type="password" name="passwordconfirm" class="form-control" id="passwordConfirm">
+                            <div class="item match" id="match">
+                                <ion-icon name="checkmark-circle"></ion-icon> Password must match.
+                            </div>
                         </div>
-                        <div class="item letter" id="letter">
-                            <ion-icon name="checkmark-circle"></ion-icon> Must Contain 1 letter.
-                        </div>
+                        <br>
+                        <button type="submit" class="btn submit-btn bold boxshadow">
+                            <ion-icon name="enter-outline"></ion-icon> Submit
+                        </button>
                     </div>
-                    <br>
-                    <!--Password confirm-->
-                    <div>
-                        <label for="passwordconfirm" class="form-label">Confirm password:*</label>
-                        <input type="password" name="passwordconfirm" class="form-control" id="passwordConfirm">
-                        <div class="item match" id="match">
-                            <ion-icon name="checkmark-circle"></ion-icon> Password must match.
-                        </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn submit-btn bold boxshadow">
-                        <ion-icon name="enter-outline"></ion-icon> Submit
-                    </button>
+                </form>
+            </div>
+            <!-- Call to login-->
+            <div class="row g-0">
+                <div class="col-12">
+                    <p class="text-center">
+                        Already a user?
+                        <a href="{{ url_for('login') }}" class="center">Log in here</a>
+                    </p>
                 </div>
-            </form>
-        </div>
-        <!-- Call to login-->
-        <div class="row g-0">
-            <div class="col-12">
-                <p class="text-center">
-                    Already a user?
-                    <a href="{{ url_for('login') }}" class="center">Log in here</a>
-                </p>
             </div>
         </div>
     </div>
 </div>
-
 <!--form validation-->
 <script src="/static/js/form-validation.js"></script>
 

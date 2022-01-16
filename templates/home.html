@@ -1,23 +1,23 @@
 {% extends "base.html"%}
 {% block content %}
-
-<h2 class="text-center text-black">Home</h2>
-<div class="card col-10 offset-1">
-    <p class="main-explanation px-3 pt-3 text-black bold">
-        Welcome to this site.
-    </p>
-    <p class="main-explanation px-3 text-black">
-        This site is meant for coaches and managers of sport teams.
-        With this site you will be able to time all the players bench and field times simultaneous.
-        Due to this you will have to spend less time and focus on substitutes and will have more time for coaching.
-        To be able to use the full functionality of this site you will have to register/ log-in.
-        This is a free to use website.
-    </p>
-    {% if not session.user %}
-    <a href="{{ url_for('login') }}" class="btn m-3 boxshadow">Log in here</a>
-    <a href="{{ url_for('register') }}" class="btn m-3 boxshadow">Register Account</a>
-    {% endif %}
+<div class="content-block">
+    <h2 class="text-center text-black">Home</h2>
+    <div class="card col-10 offset-1">
+        <p class="main-explanation px-3 pt-3 text-black bold">
+            Welcome to this site.
+        </p>
+        <p class="main-explanation px-3 text-black">
+            This site is meant for coaches and managers of sport teams.
+            With this site you will be able to time all the players bench and field times simultaneous.
+            Due to this you will have to spend less time and focus on substitutes and will have more time for coaching.
+            To be able to use the full functionality of this site you will have to register/ log-in.
+            This is a free to use website.
+        </p>
+        {% if not session.user %}
+        <a href="{{ url_for('login') }}" class="btn m-3 boxshadow">Log in here</a>
+        <a href="{{ url_for('register') }}" class="btn m-3 boxshadow">Register Account</a>
+        {% endif %}
+    </div>
 </div>
-
 
 {% endblock %}
