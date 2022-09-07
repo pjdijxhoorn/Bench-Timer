@@ -1,6 +1,6 @@
 # Coach Helper
 
-View the live project here. [link](https://pjdijxhoorn.github.io/milestone-project-2/)
+View the live project here. [link](https://bench-timer.herokuapp.com/)
 
 This is a website to help Fieldhockey coaches solve real life problems. I am a field hockey coach myself,
 and a problem that my colleagues and I kept running in to is the subbing(switching) of players and how to
